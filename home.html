@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>IGO</title>
+    <script src="js/scripts/jquery.min.js"></script>
+    <link rel="stylesheet" href="js/scripts/bootstrap/css/home.bootstrap.min.css">
+    <link rel="stylesheet" href="css/home1.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/vendor/classic.css">
+    <link rel="stylesheet" href="css/vendor/classic.date.css">
+    <link rel="stylesheet" type="text/css" href="css/set1.css" />
+    <script src="js/scripts/script.js"></script>
+    <style>
+      #page-container{
+        width: 1366px;
+        margin: 0 auto;
+        margin-left: -50px;
+      }
+      input:focus{
+        outline: 0;
+        border-color: #FED101;
+      }
+      a{
+        text-decoration: none;
+        color: #272727;
+      }
+      a:hover{
+        text-decoration: none;
+      }
+      .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover{
+        color: #FED101;
+      }
+      .navbar-default .navbar-nav>.active>a{
+        color: #FED101;
+      }
+      .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover
+      .search-btn:hover{
+        color: #FED101;
+      }
+      .navbar-mini .lan-menu li a:hover{
+        color: white;
+      }
+      .parallax {
+        width: 1366px;
+        margin: 0 auto;
+        background-image: url(images/gallery/bg.png);
+        min-height: 450px; 
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      .gallery {
+        width: 1060px;
+        margin:0 auto;
+      }
+      .headline{
+        font-family: R Bold;
+        font-size: 24px;
+        margin-top: 95px;
+      }
+      .headlines{
+        font-family: R Bold;
+        font-size: 24px;
+        margin-top: 70px;
+      }
+      .item {
+        text-align:center;
+        float:left;
+        margin:25px;
+        position:relative;  
+        border-radius: 10px;    
+      }
+      .item,
+      .item-hover,
+      .item-hover .mask,
+      .item-img,
+      .item-info {
+        width: 300px;
+        height: 225px;  
+        border-radius: 10px;
+      }
+      .item-hover,
+      .item-hover .mask,
+      .item-img { 
+        position:absolute;
+        top:0;
+        left:0; 
+        border-radius: 10px;    
+      }
+      .item-type-line .item-hover { 
+        z-index:100;  
+        -webkit-transition: all 300ms ease-out;
+        -moz-transition: all 300ms ease-out;
+        -o-transition: all 300ms ease-out;
+        transition: all 300ms ease-out; 
+        opacity:0;
+        cursor:pointer;           
+        display:block;
+        text-decoration:none;
+        text-align:center;
+      }
+      .item-type-line .item-info {
+        z-index:10;
+        color:#ffffff;
+        display:table-cell;
+        vertical-align:middle;
+        position:relative;
+        z-index:5;                  
+      }
+       .item-type-line .item-info .headline {
+        font-size:24px;         
+      }
+      .line {
+        border: 2px solid white;
+        width: 30%;
+         margin: 0 auto;       
+      }
+      .lines {
+        border: 2px solid white;
+        width: 30%;
+        margin: 5px auto;       
+      }  
+      .item-type-line .item-info .date {
+        font-size:12px;
+      }
+      .item-type-line .item-hover .mask {
+        background-color:#000;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+        filter: alpha(opacity=50);                    
+        opacity:0.5;
+        z-index:0;
+      } 
+      .item-type-line .item-hover:hover .line {
+        width:40%;
+      } 
+      .item-type-line .item-hover:hover {
+        opacity:1;
+      }   
+      .item-img {     
+          background-color:#ffffff;
+          z-index:0;      
+      }
+      .footer{
+        height: 450px;background-color: #272727;padding:90px 75px;border-bottom: 0.1px solid #D9D9D9;
+        margin: 0 -42px;
+        width: 1366px;     
+      }
+      .text {
+        text-decoration: underline;
+        color: white;
+        font-size: 24px;
+        padding: 16px 32px;
+        font-family: R Bold;
+        width: 320px;
+        text-align: center;
+      }
+      .text-footer{
+        color: white;
+        font-size: 18px;
+        font-family: R Bold;
+      }
+      .text-footers{
+        color: #B1B1B1;
+        font-size: 16px;
+        font-family: R Regular;
+      }
+      .butmail{
+        width: 90%;height: 90px; background-color: #FED101; border: 1px solid #FED101;float: right;margin: 50px auto;padding-left: 10px; border-top-left-radius:10px;border-bottom-left-radius:10px;border-bottom-right-radius:10px;
+      }
+      .image-wrap {
+        display: inline-block;
+        max-width: 100%;
+        position: relative;  
+      }
+
+      .image-wrap .overlay {
+        position: absolute;
+        top:0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        color:white;
+        opacity: 1;
+        transition:opacity .5s ease;
+      }
+      .black {
+        background: rgba(0,0,0,0.5);
+      }
+      .dropdown1 {
+        position: absolute;
+        top:50%;
+        transform: translateY(-50%);
+        left: 205px;
+      }.dropdown1 dd,
+      .dropdown1 dt {
+        margin: 0px;
+        padding: 0px;
+      }
+      .dropdown1 ul {
+        margin: -1px 0 0 0;
+      }
+      .dropdown1 dd {
+        position: relative;
+      }
+      .dropdown1 a,
+      .dropdown1 a:visited {
+        color: #757575;
+        text-decoration: none;
+        outline: none;
+        font-size: 16px;
+      }
+      .dropdown1 dt a {
+        display: block;
+        padding: 8px 20px 5px 10px;
+        min-height: 25px;
+        line-height: 24px;
+        overflow: hidden;
+        border: 0;
+      }
+      .dropdown1 dt a span,
+      .multiSel1 span {
+        cursor: pointer;
+        display: inline-block;
+        padding: 0 3px 2px 0;
+        margin-left: 10px;
+        font-size: 18px;
+        color: #757575;
+      }
+      .dropdown1 dd ul {
+        background-color: #e9e9e9;
+        color: #757575;
+        display: none;
+        left: -11px;
+        padding: 2px 25px 2px 5px;
+        position: absolute;
+        top: 2px;
+        width: 182px;
+        list-style: none;
+        overflow: auto;
+        border-top: 1px solid white;
+      }
+      .dropdown1 span.value {
+        display: none;
+      }
+      .dropdown1 dd ul li a {
+        padding: 5px;
+        display: block;
+      }
+      .dropdown1 dd ul li a:hover {
+        background-color: #fff;
+      }
+      .btn-select {
+        position: relative;
+        padding: 0;
+        min-width: 236px;
+        width: 100%;
+        border-radius: 0;
+        margin-bottom: 20px;
+      }
+      .btn-select .btn-select-value {
+          padding: 6px 12px;
+          display: block;
+          position: absolute;
+          left: 0;
+          right: 34px;
+          text-align: left;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          border-top: none !important;
+          border-bottom: none !important;
+          border-left: none !important;
+      }
+
+      .btn-select .btn-select-arrow {
+          float: right;
+          line-height: 24px;
+          padding: 6px 10px;
+          top: 0;
+      }
+
+      .btn-select ul {
+        font-family: R Regular;
+        font-size: 18px;
+          display: none;
+          background-color: white;
+          color: #272727;
+          clear: both;
+          list-style: none;
+          margin: 0;
+          border-top: none !important;
+          position: absolute;
+          left: -1px;
+          right: -1px;
+          top: 33px;
+          z-index: 999;
+
+      }
+
+      .btn-select ul li {
+          padding: 3px 12px;
+          text-align: left;
+      }
+
+      .btn-select ul li:hover {
+          background-color: #f4f4f4;
+      }
+
+      .btn-select ul li.selected {
+          color: #757575;
+      }
+
+      /* Primary Start */
+      .btn-primary {
+          color: #757575;
+          background-color: #e9e9e9;
+          border-color: #e4e4e4;
+        }
+      .btn-primary:hover{
+        color: #757575;
+        background-color: #e4ebf0;
+      }
+      .btn-primary.active, .btn-primary:active, .open>.dropdown-toggle.btn-primary {
+      color: #2757575;
+      background-color: #286090;
+      border-color: #204d74;
+      }
+      .btn-primary.active.focus, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary:active.focus, .btn-primary:active:focus, .btn-primary:active:hover, .open>.dropdown-toggle.btn-primary.focus, .open>.dropdown-toggle.btn-primary:focus, .open>.dropdown-toggle.btn-primary:hover {
+          color: #757575;
+          background-color: #204d74;
+          border-color: #122b40;
+      }
+      .btn-select.btn-primary:hover, .btn-select.btn-primary:active, .btn-select.btn-primary.active {
+          border-color: #e4e4e4;
+      }
+
+      .btn-select.btn-primary ul li.selected {
+          background-color: #e9e9e9;
+          color: #757575;
+      }
+
+      .btn-select.btn-primary ul {
+          border: #e4e4e4 1px solid;
+      }
+
+      .btn-select.btn-primary .btn-select-value {
+          background-color: #e9e9e9;
+          font-size: 18px;
+          font-family: R Regular;
+      }
+
+      .btn-select.btn-primary:hover, .btn-select.btn-primary.active {
+          background-color: #e9e9e9;
+      }
+
+      .navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover{
+        color: #FED101;
+      }
+      .icoho{
+        margin:0 auto;margin-bottom:150px;height: 150px;width: 1060px;text-align: center;
+      }
+      .linh:hover{
+        color: white;
+      }
+      .ree {
+            text-transform: none;
+             color: white;
+             cursor: pointer;
+             letter-spacing: 1px;
+             position: relative;
+             -webkit-transition: all 0.3s;
+             -moz-transition: all 0.3s;
+             transition: all 0.3s;
+           }
+           .ree-2 {
+             background: #FED101;
+             box-shadow: 0 6px #FCAF03;
+             -webkit-transition: none;
+             -moz-transition: none;
+             transition: none;
+           }
+           .ree-2c {
+               border-radius: 10px;
+           }
+           .ree-2c:hover {
+             box-shadow: 0 4px #FCAF03;
+             top: 2px;
+           }
+
+           .ree-2c:active {
+             box-shadow: 0 0 #FCAF03;
+             top: 6px;
+           }
+           .sub {
+            text-transform: none;
+             color: white;
+             cursor: pointer;
+             letter-spacing: 1px;
+             position: relative;
+             -webkit-transition: all 0.3s;
+             -moz-transition: all 0.3s;
+             transition: all 0.3s;
+           }
+           .sub-2 {
+             background: #272727;
+             box-shadow: 0 6px black;
+             -webkit-transition: none;
+             -moz-transition: none;
+             transition: none;
+           }
+           .sub-2c {
+               border-radius: 10px;
+           }
+           .sub-2c:hover {
+             box-shadow: 0 4px black;
+             top: 2px;
+           }
+
+           .sub-2c:active {
+             box-shadow: 0 0 #272727;
+             top: 6px;
+           }
+           .them{
+            background-color: #272727;
+            font-family: R Bold;
+            color: white;
+            font-family: 18px;
+           }
+           .bot{
+            background-color: #575756;
+            color: white;
+            font-family: R Regular;
+            font-size: 18px;
+           }
+    </style>
+</head>
+<body>
+      <header class="fixed-top scroll-change" data-menu-anima="fade-bottom">
+        <div class="navbar navbar-default icon-menu navbar-fixed-top" role="navigation">
+            <div class="navbar-mini scroll-hide">
+                <div class="container">
+                    <div class="nav navbar-nav navbar-right">
+                        <ul class="nav navbar-nav lan-menu">
+                            <li class="dropdown">
+                                <a href="#" target="_blank" class="dropdown-toggle" data-toggle="dropdown" role="button"><img src="images/icons/en.png" alt="flag" class="en">EN <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#" target="_blank" style="color: black;"><img src="images/icons/vi.png" alt="flag" />VN</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <form class="navbar-form" role="search">
+                            <div  class="input-group">
+                                <input style="font-weight: lighter;" type="text" class="form-control" placeholder="Search for...">
+                                <span class="input-group-btn">
+                                    <a class="btn btn-default" style="font-family: R Bold;font-size: 14px;height: 40px;padding-top:12px" href="login.html">LOGIN/REGISTER</a>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="navbar navbar-main">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <a class="navbar-brand" href="home.html"><img  style="zoom:80%" src="images/logo.png" alt="logo"></a>
+                    </div>
+                    <div class="collapse navbar-collapse" style="margin-right: 90px;">
+                        <ul class="nav navbar-nav" style="font-family: R Bold;float: right;">
+                            <li id="hote"><a href="#"><i class="onlycover hote" style="background-image:url(images/icons/icon-2.png)"></i><span style="font-size: 18px;">Hostels</span></a></li>
+                            <li id="fly"><a href="#" target="_blank"><i class="onlycover" style="background-image:url(images/icons/icon-6.png)"></i><span style="font-size: 18px;">Flights</span></a></li>
+                            <li><a href="tip4trip.html"><i class="onlycover" style="background-image:url(images/icons/icon-1.png)"></i><span style="font-size: 18px;">Tips for Trips </span></a></li>
+                            <li><a href="contact.html"><i class="onlycover" style="background-image:url(images/icons/icon-4.png)"></i><span style="font-size: 18px;">Contacts</span></a></li>
+                        </ul>
+                        <div class="nav navbar-nav navbar-right">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div id="page-container">
+    <!-- Search -->
+   <div class="b-container b-container__search parallax-window" data-parallax="scroll">
+
+          <div class="b-search">
+              <!-- Search box -->
+             
+             <div>
+
+                 <div class="tab">
+                   
+                   <button class="tablinks flys" onclick="openCity(event, 'Flights')">Flights</button>
+                   <button class="tablinks hos" onclick="openCity(event, 'Hostels')">Hostels</button>
+                 </div>
+              <script>
+                  $(document).ready(function() {
+                    $("#Flights").click();
+                    $("#fly").click()
+                  });
+                  $(".hos").click(function(){
+                    $("#hote").click();
+                  });
+                  $(".flys").click(function(){
+                    $("#fly").click();
+                  });
+                  $(document).ready(function() {
+                    $(".tabcontent:first").show()
+                  });
+                  $("button").ready (function(){
+                    $(".tablinks:first").addClass("active");
+                  });
+                  $("#hote").click(function(){
+                    $("#Hostels").show();
+                    $("#Flights").hide();
+                  });
+                  $("#fly").click(function(){
+                    $("#Flights").show();
+                    $("#Hostels").hide();
+                  });
+                  $("#hote").click(function(){
+                    $(".hos").addClass("active");
+                    $(".flys").removeClass("active");
+                  });
+                  $("#fly").click(function(){
+                    $(".flys").addClass("active");
+                    $(".hos").removeClass("active");
+                  });
+              </script> 
+                 
+                 <div id="Flights" class="tabcontent">
+
+                   <div class="b-search-box">
+                          <h2 class="b-search_title">Wanna escape from the Ordinary?</h2>
+
+                          <div class="f-input-group f-input-group__radio text-center">
+                              <label class="radio">
+                                  <input id="f-round-trip" type="radio" name="f-way" checked>
+                                  <span class="outer"><span class="inner"></span></span>
+                                  Round trip
+                              </label>
+                              <label class="radio">
+                                  <input id="f-one-way" type="radio" name="f-way">
+                                  <span class="outer"><span class="inner"></span></span>
+                                  One way
+                              </label>
+                          </div>
+                             <!-- Search form -->
+                             <form action="" method="" class="b-search-box_form" id="js-form">
+
+                                 <div class="f-input-group">
+                                     <div class="f-input-group__half">
+                                          
+                                         <input type="text" name="f-flight-from" id="f-flight-from" class="f-input f-input__plane-right js-autocomplete" placeholder="From city, airport, anywhere">
+                                     </div>
+                                     <div class="f-input-group__half">
+                                         
+                                         <input type="text" name="f-flight-to" id="f-flight-to" class="f-input f-input__plane-left js-autocomplete" placeholder="To city, airport, anywhere">
+                                     </div>
+                                 </div>
+                                 <div class="f-input-group" style="margin-left: 100px;
+                                 margin-right: 100px;">
+                                     <div class="f-input-group__third">
+                                         <div class="f-select-group">
+                                             <div class="f-select-info" style="margin-left: 20px;"></div>
+                                             <input name="f-adults" id="f-adults" class="f-input f-input__calendar js-datepicker" placeholder="Depart">
+                                         </div>
+                                     </div>
+
+                                     <div class="f-input-group__third">
+                                          <div class="f-select-group">
+                                             <div class="f-select-info" style="margin-left: 20px;"></div>
+                                             <input name="f-adults" id="f-adults" class="f-input f-input__calendar js-datepicker" placeholder="Return">
+                                         </div>
+                                        
+                                     </div>
+
+                                     <div class="f-input-group__third">
+                                        
+                                         <div class="f-select-group">
+                                             <div class="f-select-info">Traveler(s)</div>
+                                             <select name="f-infants" id="f-infants">
+                                                 <option value="1">1</option>
+                                                 <option value="2">2</option>
+                                                 <option value="3">3</option>
+                                                 <option value="4">4</option>
+                                                 <option value="5">5</option>
+                                             </select>
+                                         </div>
+                                     </div>
+                                 </div>
+
+                             </form>
+
+                             <section class="color-2">
+                               <p>
+                                 <a href="flight.html"><button class="search-btn ree ree-2 ree-2c">Let's go!</button></a>
+                                </p>
+                             </section>
+                         </div>
+                 </div>
+                 <div id="Hostels" class="tabcontent">
+
+                   <div class="b-search-box">
+                          <h2 class="b-search_title" style="margin-bottom: 30px;">All I wanna do is waking up</h2>
+
+                          
+                             <!-- Search form -->
+                             <form action="" method="" class="b-search-box_form" id="js-form">
+
+                                <div class="f-input-group">
+                                    <div class="f-input-group__half">
+                                         
+                                        <input type="text" name="f-flight-from" id="f-flight-from" class="f-input f-input__plane-right js-autocomplete" placeholder="At a hostel, a homestay, or a city, anywhere ...">
+                                    </div>
+                                </div>
+                                <div class="f-input-group">
+                                    <div class="f-input-group__half">
+                                        <a class="btn btn-primary btn-select">
+                                           <input type="hidden" class="btn-select-input" id="" name="" value="" />
+                                             <span class="btn-select-value">Select an Item</span>
+                                             <span class='btn-select-arrow glyphicon glyphicon-chevron-down'></span>
+                                             <ul>
+                                               <li class="selected"><img style="zoom:25%;" src="images/icons/home_tab.png";><span style="padding-left: 15px;">1 bed in a room</span></li>
+                                               <li><img style="zoom:25%;" src="images/icons/home_tab.png";><span style="padding-left: 15px;">2 beds in a room</span></li>
+                                               <li><img style="zoom:25%;" src="images/icons/home_tab.png";><span style="padding-left: 15px;">dormitory</span></li>            
+                                             </ul>
+                                         </a>
+                                    </div>
+                                </div>
+                                 <div class="f-input-group" style="margin-left: 100px;
+                                 margin-right: 100px;">
+                                     <div class="f-input-group__third">
+                                         <div class="f-select-group">
+                                             <div class="f-select-info" style="margin-left: 20px;"></div>
+                                             <input name="f-adults" id="f-adults" class="f-input f-input__calendar js-datepicker" placeholder="Check-in">
+                                         </div>
+                                     </div>
+
+                                     <div class="f-input-group__third">
+                                          <div class="f-select-group">
+                                             <div class="f-select-info" style="margin-left: 20px;"></div>
+                                             <input name="f-adults" id="f-adults" class="f-input f-input__calendar js-datepicker" placeholder="Check-out">
+                                         </div>
+                                        
+                                     </div>
+
+                                     <div class="f-input-group__third">
+                                        
+                                         <div class="f-select-group">
+                                             <div class="f-select-info">Traveler</div>
+                                             <select name="f-infants" id="f-infants">
+                                                 <option value="2">1</option>
+                                                 <option value="2">2</option>
+                                                 <option value="3">3</option>
+                                                 <option value="4">4</option>
+                                                 <option value="5">5</option>
+                                             </select>
+                                         </div>
+                                     </div>
+                                 </div>
+
+                             </form>
+
+                             <section class="color-2">
+                               <p>
+                                 <a href="hostel.html"><button class="search-btn ree ree-2 ree-2c">Find me!</button></a>
+                                </p>
+                             </section>
+                         </div>
+                 </div>
+                
+                 <script>
+                 function openCity(evt, cityName) {
+                     var i, tabcontent, tablinks;
+                     tabcontent = document.getElementsByClassName("tabcontent");
+                     for (i = 0; i < tabcontent.length; i++) {
+                         tabcontent[i].style.display = "none";
+                     }
+                     tablinks = document.getElementsByClassName("tablinks");
+                     for (i = 0; i < tablinks.length; i++) {
+                         tablinks[i].className = tablinks[i].className.replace(" active", "");
+                     }
+                     document.getElementById(cityName).style.display = "block";
+                     evt.currentTarget.className += " active";
+                     
+                 }
+
+                 </script>
+
+          </div>
+
+      </div>
+
+</div>
+
+<div class="parallax">
+  <div>
+  <div>
+    
+  </div>
+  
+  <p style="text-align: center;color: white;font-size: 40px;font-family: R Bold;line-height: 380px"><h style="font-family: M Bold;font-size: 40px;font-weight: 900;color: white;left: 20%;">“ </h>When home can be found in anywhere you go <h style="font-family: M Bold;font-size: 40px;font-weight: 900;color: white">”</h></p>
+ 
+  <div style="margin-top: -60px;margin-left: 1050px;">
+   
+  </div> 
+  </div>
+</div>
+
+<div class="section-empty" style="background-color: #D9D9D9; padding-bottom: 50px;height: 781px;width: 1366px;margin: 0 auto ">
+  <h1 style="color: #272727; text-align: center;padding-top: 60px;padding-bottom: 30px;font-size: 48px;font-family: R Bold;">Best choices for Travelers</h1>
+
+           <div class="gallery">
+            <a href="#">
+              <div class="item item-type-line">
+              <div class="grid">
+                <figure class="effect-sadie">
+                  <img src="images/gallery/1.jpg" alt="img02"/>
+                    <figcaption>
+                      <h2>
+                        <div class="headline">Ha Noi
+                          <div class="line"></div>
+                           </div>
+                      </h2>
+                      <p>1000 Ha Noi Hostels <br>Ha Noi travel guide <br>Ha Noi travel promotion</p>
+                    </figcaption>     
+                  </figure>
+                </div>
+              </div>
+            </a>
+
+            <a href="#">
+              <div class="item item-type-line">
+              <div class="grid">
+                <figure class="effect-sadies">
+                  <img src="images/gallery/2.jpg" alt="img02"/>
+                    <figcaption>
+                      <h2>
+                        <div class="headline">Ho Chi Minh
+                          <div class="line"></div>
+                           </div>
+                      </h2>
+                      <p>1998 Ho Chi Minh Hostels <br>Ho Chi Minh travel guide <br>Ho Chi Minh travel promotion</p>
+                    </figcaption>     
+                  </figure>
+                </div>
+              </div>
+            </a>
+            
+            <a href="#">
+              <div class="item item-type-line">
+              <div class="grid">
+                <figure class="effect-sadiess">
+                  <img src="images/gallery/3.jpg" alt="img02"/>
+                    <figcaption>
+                      <h2>
+                        <div class="headline">Da Nang
+                          <div class="line"></div>
+                           </div>
+                      </h2>
+                      <p>720 Da Nang Hostels <br>Da Nang travel guide <br>Da Nang travel promotion</p>
+                    </figcaption>     
+                  </figure>
+                </div>
+              </div>
+            </a>
+            
+            <a href="#">
+              <div class="item item-type-line">
+              <div class="grid">
+                <figure class="effect-sadie">
+                  <img src="images/gallery/4.jpg" alt="img02"/>
+                    <figcaption>
+                      <h2>
+                        <div class="headline">Da Lat
+                          <div class="line"></div>
+                           </div>
+                      </h2>
+                      <p>320 Da Lat Hostels <br>Da Lat travel guide <br>Da Lat travel promotion</p>
+                    </figcaption>     
+                  </figure>
+                </div>
+              </div>
+            </a>
+
+            <a href="#">
+              <div class="item item-type-line">
+              <div class="grid">
+                <figure class="effect-sadie">
+                  <img src="images/gallery/5.jpg" alt="img02"/>
+                    <figcaption>
+                      <h2>
+                        <div class="headline">Sa Pa
+                          <div class="line"></div>
+                           </div>
+                      </h2>
+                      <p>680 Sa Pa Hostels <br>Sa Pa travel guide <br>Sa Pa travel promotion</p>
+                    </figcaption>     
+                  </figure>
+                </div>
+              </div>
+            </a>
+
+            <a href="#">
+              <div class="item item-type-line">
+              <div class="grid">
+                <figure class="effect-sadie">
+                  <img src="images/gallery/6.jpg" alt="img02"/>
+                    <figcaption>
+                      <h2>
+                        <div class="headline">Mui Ne
+                          <div class="line"></div>
+                           </div>
+                      </h2>
+                      <p>198 Mui Ne Hostels <br>Mui Ne travel guide <br>Mui Ne travel promotion</p>
+                    </figcaption>     
+                  </figure>
+                </div>
+              </div>
+            </a> 
+           </div>
+        </div>
+<div style="padding-top: 80px;text-align: center;font-size: 48px;padding-bottom: 50px;font-family: R Bold;">
+  <p>Why choosing<img style="zoom:47%; margin-left: 20px;margin-top: 17px;" src="images/logo.png">?</p>
+   
+</div>
+<div class="icoho">
+    <div class="col-md-4" >
+      <a href="#" target="_blank"><img style="margin-right: 30px;"  src="images/icons/home.png"></a>
+      <p style="margin-top: 15px;font-size: 24px;color: #FED101;font-family: R Bold;margin-left: -50px;">Soft prices</p>
+    </div>
+    <div class="col-md-4" style="margin-top: 27px;">
+      <a href="#" target="_blank"><img style="margin-right: 30px;margin-bottom: 25px;"  src="images/icons/credit-card.png"></a>
+      <p style="font-size: 24px;margin-left: -50px;margin-top: 5px;color: #FED101;font-family: R Bold;">No credit cards needed</p>
+    </div>
+    <div class="col-md-4">
+      <a href="#" target="_blank"><img style="margin-right: 30px;"  src="images/icons/customer-service.png"></a>
+      <p style="margin-top: 23px;font-size: 24px;color: #FED101;font-family: R Bold;margin-left: -20px;">24/7 support</p>
+    </div>
+</div>
+
+<div class="section-empty" style="background-color: #D9D9D9; padding-bottom: 50px;height: 500px;width: 1366px;margin: 0 auto">
+  <h1 style="color: #272727; text-align: center;padding-top: 90px;font-family: R Bold; font-size: 48px;padding-bottom: 30px;">Our latest tips & inspiring travel stories</h1>
+      <div class="gallery">
+            <div class="item item-type-line">
+              <a href="#" target="_blank" class="image-wrap">
+                <img class="img-responsive" src="images/gallery/7.jpg" alt="" />
+                <div class="overlay black">
+                  <div class="headlines">The best places <br>to visit in October</div>
+                    <div class="lines"></div>
+                 </div>
+              </a>
+            </div> 
+
+            <div class="item item-type-line">
+              <a href="#" target="_blank" class="image-wrap">
+                <img class="img-responsive" src="images/gallery/8.jpg" alt="" />
+                <div class="overlay black">
+                  <div class="headlines">11 must-experience<br>things when in Mui Ne</div>
+                    <div class="lines"></div>
+                 </div>
+              </a>
+            </div> 
+
+            <div class="item item-type-line">
+              <a href="#" target="_blank" class="image-wrap">
+                <img class="img-responsive" src="images/gallery/9.jpg" alt="" />
+                <div class="overlay black">
+                  <div class="headlines">Letters from <br>single travelers</div>
+                    <div class="lines"></div>
+                 </div>
+              </a>
+            </div> 
+      </div>
+    </div>
+
+    <div style="width: 1366px;margin: 0 auto;height: 436px;background-color: #272727;padding:90px 84px;border-bottom: 0.1px solid #D9D9D9;">
+      <div class="col-md-3">
+        <img src="images/logo1.png" style="zoom:50%">
+        <p style="padding-top: 10px;padding-left: 50px">
+          <li class="text-footer" >IGO Ltd.</li>
+          <li class="text-footers">NO 29 HANG BAI STREET,</li>
+          <li class="text-footers" >HOAN KIEM, HANOI</li>
+          <a href="#"><li class="text-footers linh">Email: cs@igo.com</li></a>
+          <li class="text-footers" >Hotline:<h style="color: #FED101"> 1900-2098</h></li>
+        </p>
+      </div>
+      <div class="col-md-3">
+        <p style="padding-top: 10px;">
+          <li class="text-footer" >Keep in touch</li>
+          <a href="about.html"><li class="text-footers linh" style="padding-top: 10px;">About us</li></a>
+          <a href="#"><li class="text-footers linh" style="padding-top: 10px;">Join us</li></a>
+          <a href="#"><li class="text-footers linh" style="padding-top: 10px;">Partner with us</li></a>
+          <a href="contact.html"><li class="text-footers linh" style="padding-top: 10px;">Contact us</li></a>
+        </p>
+      </div>
+      <div class="col-md-3">
+        <p style="padding-top: 10px;">
+          <li class="text-footer" >Need a helping hand?</li>
+          <a href="review.html"><li class="text-footers linh" style="padding-top: 10px;">Reviews</li></a>
+          <a href="faq.html"><li class="text-footers linh" style="padding-top: 10px;">FAQs</li></a>
+          <a href="#"><li class="text-footers linh" style="padding-top: 10px;">Privacy Policy</li></a>
+          <a href="#"><li class="text-footers linh" style="padding-top: 10px;">Terms & Conditions</li></a>
+        </p>
+      </div>
+      <div class="col-md-3">
+        <p style="padding-top: 10px;">
+          <li class="text-footer" >Stalk us on</li>
+          <a href="#"><li class="text-footers linh" style="padding-top: 10px;"><i class="fa fa-facebook" aria-hidden="true" style="padding-right: 15px"></i>Facebook</li></a>
+          <a href="#"><li class="text-footers linh" style="padding-top: 10px;"><i class="fa fa-instagram" aria-hidden="true" style="padding-right: 10px;"></i>Instagram</li></a>
+          <a href="#"><li class="text-footers linh" style="padding-top: 10px;"><i class="fa fa-youtube-play" aria-hidden="true"  style="padding-right: 10px;"></i>Youtube</li></a>
+          <a href="#"><li class="text-footers linh" style="padding-top: 10px;"><i class="fa fa-twitter" aria-hidden="true" style="padding-right: 10px;"></i>Twitter</li></a>
+        </p>
+      </div>
+      <div style="width: 1020px;height: 90px; background-color: #FED101; border: 1px solid #FED101;float: right;margin-top: 50px;padding-left: 40px; border-top-left-radius:10px;border-bottom-left-radius:10px;border-bottom-right-radius:10px;">
+        <div class="col-md-6" style="margin-top: 20px;">
+          <p style="font-size: 24px;font-family: R Bold">Wanna get it daily?</p>
+          <p class="text-footers" style="color: #272727;margin-top: -15px;font-size: 18px;font-family: R Regular">Subcribe to receive tips & inspiring travel stories!</p>
+        </div>
+        <div class="col-md-6" style="margin-top: 20px;">
+          <input type="text" name="Email" placeholder="Email" style="font-style: inherit;font-family: R Regular; width:350px;height: 50px;margin-left: -70px;padding: 20px; font-size: 18px;">
+        <!--   <section class="color-2">
+            <p>
+              <button class="search-btn ree ree-2 ree-2c">Let's go!</button>
+             </p>
+          </section> -->
+          <a href="#"><button class="sub sub-2 sub-2c" style="background-color: #272727; color: white; height: 50px;border-style: none; border-radius: 10px;width: 140px;font-size: 24px; font-family: R Bold;margin-left: 20px;">Subcribe</button></a>
+        </div>
+      </div>
+    </div>
+    <div style="height: 65px;background-color: #272727;width: 1366px;margin: 0 auto">
+      <p style="text-align: center;color: white;padding-top: 15px;" class="text-footers">All material herein © 2017 IGO. All Rights Reserved.</p>
+    </div>
+</div>
+
+<link property="" rel="stylesheet" href="js/scripts/font-awesome/css/font-awesome.min.css">
+<script async src="js/scripts/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Autocomplete + datepicker -->
+<script src="js/vendor/picker.js"></script>
+<script src="js/vendor/picker.date.js"></script>
+<script src="js/vendor/legacy.js"></script>
+<script src="js/vendor/typeahead.jquery.js"></script>
+<script src="js/main.js"></script>
+<script>
+
+  $(document).ready(function () {
+      $(".btn-select").each(function (e) {
+          var value = $(this).find("ul li.selected").html();
+          if (value != undefined) {
+              $(this).find(".btn-select-input").val(value);
+              $(this).find(".btn-select-value").html(value);
+          }
+      });
+  });
+
+  $(document).on('click', '.btn-select', function (e) {
+      e.preventDefault();
+      var ul = $(this).find("ul");
+      if ($(this).hasClass("active")) {
+          if (ul.find("li").is(e.target)) {
+              var target = $(e.target);
+              target.addClass("selected").siblings().removeClass("selected");
+              var value = target.html();
+              $(this).find(".btn-select-input").val(value);
+              $(this).find(".btn-select-value").html(value);
+          }
+          ul.hide();
+          $(this).removeClass("active");
+      }
+      else {
+          $('.btn-select').not(this).each(function () {
+              $(this).removeClass("active").find("ul").hide();
+          });
+          ul.slideDown(300);
+          $(this).addClass("active");
+      }
+  });
+
+  $(document).on('click', function (e) {
+      var target = $(e.target).closest(".btn-select");
+      if (!target.length) {
+          $(".btn-select").removeClass("active").find("ul").hide();
+      }
+  });
+
+</script>
+    
+</body>
+
+
+</html>

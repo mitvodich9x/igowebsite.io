@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>IGO</title>
+    <script src="js/scripts/jquery.min.js"></script>
+    <script src="filter/js/jquery.nice-select.min.js"></script>
+    <link rel="stylesheet" href="js/scripts/bootstrap/css/contact.bootstrap.min.css">
+    <link rel="stylesheet" href="js/scripts/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="filter/css/nice-select.css">
+    <link rel="stylesheet" href="css/contact1.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <script src="js/scripts/script.js"></script>
+    <script>
+      $(document).ready(function() {
+        $('select').niceSelect();
+      });
+    </script>
+    <style>
+      .navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover{
+        color: #FED101;
+      }
+      a{
+        color: #272727;
+      }
+      button:focus, button:hover{
+        outline: none;
+        color: #272727;
+      }
+      input:focus{
+        outline: none;
+      }
+      .top-wrapper ul{
+          overflow: hidden;
+          margin: 0px;
+          padding: 0px;
+
+      }
+      .top-wrapper ul li{
+        background-color: white;
+        text-align: center;
+          float: left;
+          list-style: none;
+          padding: 5px 20px;
+          height: 70PX;
+          border-radius: 10px 10px 0px 0px;
+          width: 320px;
+          border:1px solid #9C9B9B;
+          border-bottom: none;
+          opacity: 0.4
+      }
+      .top-wrapper ul li.active{
+          background: #Fff;
+          width: 720px;
+          text-align: -webkit-auto;
+          opacity: 1
+      }
+    
+      .top-wrapper ul li.active a{
+        text-transform: none;
+        margin-left: 20px; 
+        color: #272727;
+        font-family: R Bold;
+        font-size: 18px;
+      }
+      .top-wrapper ul li a{
+          color: #fff;
+          text-transform: uppercase;
+          text-decoration: none;
+      }
+      
+      .top-item{
+          display: none;
+      }
+
+    .add{
+      color: #272727;
+      height: 40px;
+      font-family: R Bold;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .text {
+      text-decoration: underline;
+      color: white;
+      font-size: 24px;
+      padding: 16px 32px;
+      font-family: R Bold;
+      width: 320px;
+      text-align: center;
+    }
+    .text-footer{
+      color: white;
+      font-size: 18px;
+      font-family: R Bold;
+    }
+    .text-footers{
+      color: #B1B1B1;
+      font-size: 16px;
+      font-family: R Regular;
+    }
+    .filter{
+      width: 1060px;height: 50px;text-align: center;
+      background-color: #272727;color: white;font-family: R Bold;font-size: 18px;
+    }
+    .selection{
+      margin: 50 auto;display: inline-block;width: 200px;
+    }
+    .content{
+      background-color: #ececec;height: 100px;margin: 20px auto;color: #272727;
+    }
+    .img{
+      float: left;width: 80px;height: 30px;margin: 30px 70px
+    }
+    .imgs{
+      float: left;;width: 22px;height: 10px;margin: 40px 60px; 
+    }
+    .tbig{
+      font-family: R Bold;
+      font-size: 18px;
+      text-align: center;
+    }
+    .tsmall{
+      font-family: R Regular;
+      font-size: 16px;
+      text-align: center;
+      margin-top: 5px;
+    }
+    .texts{
+      float: left;height: 30px;margin: 30px 10px
+    }
+    .textr{
+      float: left;height: 30px;margin: 30px 80px
+    }
+    .nprice{
+      font-family: R Bold;
+      font-size: 32px;
+      margin: 30px -10px;
+      float: left; 
+    }
+    .putton button:focus{
+      color: #272727;
+    }
+
+    .putton button{
+      color: white;font-family: R Bold;font-size: 16px;width: 100px;height: 45px;border: 1px solid #fcd20a;border-radius: 10px;
+    }
+    .nbutton{
+      width: 910px;
+      height: 50px;
+      margin: 500px auto;
+    }
+    .nbutton button{
+      float: right;color:white;font-family: R Bold;font-size: 24px;width: 150px;height: 50px;border-radius: 10px;border:none;margin-right: -75px;
+    }
+    .address{
+      width: 1060px;
+      margin: 90px auto 50px;
+      border:1px solid #FED101;
+      height: 65px;
+      text-align: center;
+      border-radius: 10px
+    }
+    .tadd{
+      font-family: R Regular;
+      font-size: 24px;
+      color: #575756;
+      margin: 15px auto;
+      height: 30px;
+      text-decoration: none;
+    }
+    .linh:hover{
+          color: white;
+        }
+    .ree {
+             width: 120px;
+             height: 40px;
+             font-family: R Bold;
+             border: none;
+             font-size: 16px;
+             color: white;
+             background: none;
+             cursor: pointer;
+             display: inline-block;
+             margin: 25px -96px;
+             text-transform: uppercase;
+             letter-spacing: 1px;
+             outline: none;
+             position: relative;
+             -webkit-transition: all 0.3s;
+             -moz-transition: all 0.3s;
+             transition: all 0.3s;
+           }
+           .ree-2 {
+             background: #FED101;
+             box-shadow: 0 6px #FCAF03;
+             -webkit-transition: none;
+             -moz-transition: none;
+             transition: none;
+           }
+           .ree-2c {
+               border-radius: 10px;
+           }
+           .ree-2c:hover {
+             box-shadow: 0 4px #FCAF03;
+             top: 2px;
+           }
+
+           .ree-2c:active {
+             color: #272727;
+             box-shadow: 0 0 #FCAF03;
+             top: 6px;
+           }
+      .sub {
+            text-transform: none;
+             color: white;
+             cursor: pointer;
+             letter-spacing: 1px;
+             position: relative;
+             -webkit-transition: all 0.3s;
+             -moz-transition: all 0.3s;
+             transition: all 0.3s;
+           }
+           .sub-2 {
+             background: #272727;
+             box-shadow: 0 6px black;
+             -webkit-transition: none;
+             -moz-transition: none;
+             transition: none;
+           }
+           .sub-2c {
+               border-radius: 10px;
+           }
+           .sub-2c:hover {
+             box-shadow: 0 4px black;
+             top: 2px;
+           }
+
+           .sub-2c:active {
+            color: #272727;
+            box-shadow: 0 0 #272727;
+            top: 6px;
+           } 
+            .subs {
+            margin: 390px 215px;
+             font-family: R Bold;
+             border: none;
+             font-size: 18px;
+             color: white;
+             background: none;
+             cursor: pointer;
+             display: inline-block;
+             text-transform: uppercase;
+             letter-spacing: 1px;
+             outline: none;
+             position: relative;
+             -webkit-transition: all 0.3s;
+             -moz-transition: all 0.3s;
+             transition: all 0.3s;
+             width: 120px;
+             height: 50px;
+           }
+           .subs-2 {
+             background: #272727;
+             box-shadow: 0 6px black;
+             -webkit-transition: none;
+             -moz-transition: none;
+             transition: none;
+           }
+           .subs-2c {
+               border-radius: 10px;
+           }
+           .subs-2c:hover {
+             box-shadow: 0 4px black;
+             top: 2px;
+             color: white;
+           }
+
+           .subs-2c:active {
+             color: white;
+             box-shadow: 0 0 black;
+             top: 6px;
+           }
+           .nice-select{
+            line-height: 50px;
+           }
+    </style>
+
+    <script language="javascript">
+        
+        $(document).ready(function()
+        {
+            // Hàm active top nào đó
+            function activetop(obj)
+            {
+                // Xóa class active tất cả các top
+                $('.top-wrapper ul li').removeClass('active');
+
+                // Thêm class active vòa top đang click
+                $(obj).addClass('active');
+               
+
+
+                // Lấy href của top để show content tương ứng
+                var id = $(obj).find('a').attr('href');
+
+                // Ẩn hết nội dung các top đang hiển thị
+                $('.add').show();
+
+                // Hiển thị nội dung của top hiện tại
+                $(id) .show();
+
+            }
+
+            // Sự kiện click đổi top
+            $('.top li').click(function(){
+                activetop(this);
+                return false;
+            });
+
+            // Active top đầu tiên khi trang web được chạy
+            activetop($('.top li:first-child'));
+        });
+    </script>
+</head>
+<body>
+<!-- HEADER -->
+  <header class="fixed-top scroll-change" data-menu-anima="fade-bottom">
+    <div class="navbar navbar-default icon-menu navbar-fixed-top" role="navigation">
+      <div class="navbar-mini scroll-hide">
+        <div class="container">
+          <div class="nav navbar-nav navbar-right">
+            <ul class="nav navbar-nav lan-menu">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"><img src="images/icons/en.png" alt="flag" />EN <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#" style="color: black;"><img src="images/icons/vi.png" alt="flag" />VN</a></li>
+                </ul>
+                </li>
+            </ul>
+            <form class="navbar-form" role="search">
+              <div  class="input-group">
+                <input style="font-weight: lighter;" type="text" class="form-control" placeholder="Search for...">
+                <span class="input-group-btn">
+                <a class="btn btn-default" style="font-family: R Bold;font-size: 14px;height: 40px;padding-top:12px" href="login.html">LOGIN/REGISTER</a>
+                </span>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="navbar navbar-main">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle">
+              <i class="fa fa-bars"></i>
+            </button>
+            <a class="navbar-brand" href="home.html"><img  style="zoom:80%" src="images/logo.png" alt="logo"></a>
+          </div>
+          <div class="collapse navbar-collapse" style="margin-right: 90px;">
+            <ul class="nav navbar-nav" style="font-family: R Bold;float: right;">
+              <li><a href="home1.html"><i class="onlycover" style="background-image:url(images/icons/icon-2.png)"></i><span style="font-size: 18px;">Hostels</span></a></li>
+              <li id="fi"><a href="home.html"><i class="onlycover" style="background-image:url(images/icons/icon-6.png)"></i><span style="font-size: 18px;">Flights</span></a></li>
+              <li><a href="tip4trip.html"><i class="onlycover" style="background-image:url(images/icons/icon-1.png)"></i><span style="font-size: 18px;">Tips for Trips </span></a></li>
+              <li><a href="contact.html"><i class="onlycover" style="background-image:url(images/icons/icon-4.png)"></i><span style="font-size: 18px;">Contacts</span></a></li>
+            </ul>
+            <div class="nav navbar-nav navbar-right">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+<!-- END HEADER -->
+
+<!-- CONTAINER -->
+
+  <div class="top-wrapper" style="height: 830px;margin: 50px auto;width: 1060PX;margin-bottom: 50px;">
+    <div class="address">
+      <div class="tadd">
+        Hanoi (HAN)<i class="fa fa-long-arrow-right" aria-hidden="true" style="margin-left: 10px;margin-right: 5px;"></i> Ho Chi Minh City (SGN) ,  05 Oct 2017 - 09 Oct 2017
+        <img style="width: 26px;height: 26px;margin-left: 50px; margin-right: 8px" src="images/icons/traveler.png">x 1
+        <button type="reset" style="border: none;background-color: white;font-size: 24px;font-size: 24px;border: none;font-family: R Regular;margin:-10px auto;color: #272727;float: right;"><a href="home1.html"><i style="margin-top: 15px;margin-right: 30px;" class="fa fa-pencil" aria-hidden="true"></i></a></button>
+      </div>
+    </div>
+      <ul class="top">
+          <li>
+              <span class="add">DEPARTURE</span><a href="#top-main-info">Hanoi <i class="fa fa-long-arrow-right" aria-hidden="true" style="margin-left: 10px;margin-right: 5px;"></i> Ho Chi Minh City<br><span style="font-family: R Regular;font-size: 18px;margin-left: 160px;">Thursday, October 5th 2017</span>
+          </li>
+          <li style="margin-left: 20px;">
+              <span class="add">RETURN</span><a href="#top-image">Ho Chi Minh City <i class="fa fa-long-arrow-right" aria-hidden="true" style="margin-left: 10px;margin-right: 5px;"></i> Hanoi <br><span style="font-family: R Regular;font-size: 18px;margin-left: 140px;">Monday, October 9th 2017</span></a>
+          </li>
+      </ul>
+      <div class="top-content">
+      <div class="top-item" id="top-main-info">
+    <div class="filter">
+      <div class="selection">
+ 
+          <option style="font-family: R Bold;font-size: 18px;">FILTER</option>
+      </div>
+      <div class="selection">
+        <select>
+          <option data-display="Stops">Direct</option>
+          <option value="1">1 transit</option>
+          <option value="2">2+ transits</option>
+          <option value="3">Select All</option>
+        </select>
+      </div>
+      <div class="selection">
+        <select>
+          <option data-display="Times">00.00-6.00</option>
+          <option value="1">06.00-08.05</option>
+          <option value="2">09.00-11.05</option>
+          <option value="3">12.00-14.05</option>
+          <option value="4">15.00-17.05</option>
+        </select>
+      </div>
+      <div class="selection">
+        <select>
+          <option data-display="Airline">Vietnam Airlines</option>
+          <option value="1">VietJet Air</option>
+          <option value="2">Jetstar</option>
+          <option value="3">Select All</option>
+        </select>
+      </div>
+      <div class="selection">
+        <select>
+          <option data-display="Prices">$20</option>
+          <option value="1">$21-$30</option>
+          <option value="2">$31-$40</option>
+          <option value="3">$41-$50</option>
+          <option value="4">+$50</option>
+        </select>
+      </div>
+      <div class="content">
+        <div class="img">
+          <img src="images/icons/jetstar.png">
+        </div>
+
+        <div class="texts">
+          <p class="tbig">5:40</p>
+          <p class="tsmall">HAN</p>
+        </div>
+
+        <div class="imgs">
+          <img src="images/icons/fly.png">
+        </div>
+
+        <div class="texts">
+          <p class="tbig">7:45</p>
+          <p class="tsmall">SNG</p>
+        </div>
+
+        <div class="textr">
+          <p class="tsmall">2h 5m</p>
+          <p class="tsmall">Direct</p>
+        </div>
+ 
+          <div class="nprice">
+            <p>$20</p>
+          </div>
+
+          <div class="putton">
+             <a href="#">
+                  <section class="color-2">
+                    <p>
+                      <button class="ree ree-2 ree-2c">SELECT</button>
+                     </p>
+                  </section>
+                </a>
+          </div>
+      </div>
+
+      <div class="content">
+        <div class="img">
+          <img src="images/icons/jetstar.png">
+        </div>
+
+        <div class="texts">
+          <p class="tbig">5:40</p>
+          <p class="tsmall">HAN</p>
+        </div>
+
+        <div class="imgs">
+          <img src="images/icons/fly.png">
+        </div>
+
+        <div class="texts">
+          <p class="tbig">7:45</p>
+          <p class="tsmall">SNG</p>
+        </div>
+
+        <div class="textr">
+          <p class="tsmall">2h 5m</p>
+          <p class="tsmall">Direct</p>
+        </div>
+ 
+          <div class="nprice">
+            <p>$20</p>
+          </div>
+
+          <div class="putton">
+             <a href="#">
+                  <section class="color-2">
+                    <p>
+                      <button class="ree ree-2 ree-2c">SELECT</button>
+                     </p>
+                  </section>
+                </a>
+          </div>
+      </div>
+
+      <div class="content">
+        <div class="img">
+          <img src="images/icons/jetstar.png">
+        </div>
+
+        <div class="texts">
+          <p class="tbig">5:40</p>
+          <p class="tsmall">HAN</p>
+        </div>
+
+        <div class="imgs">
+          <img src="images/icons/fly.png">
+        </div>
+
+        <div class="texts">
+          <p class="tbig">7:45</p>
+          <p class="tsmall">SNG</p>
+        </div>
+
+        <div class="textr">
+          <p class="tsmall">2h 5m</p>
+          <p class="tsmall">Direct</p>
+        </div>
+ 
+          <div class="nprice">
+            <p>$20</p>
+          </div>
+
+          <div class="putton">
+             <a href="#">
+                  <section class="color-2">
+                    <p>
+                      <button class="ree ree-2 ree-2c">SELECT</button>
+                     </p>
+                  </section>
+                </a>
+          </div>
+      </div>
+
+      <div class="content">
+        <div class="img">
+          <img src="images/icons/jetstar.png">
+        </div>
+
+        <div class="texts">
+          <p class="tbig">5:40</p>
+          <p class="tsmall">HAN</p>
+        </div>
+
+        <div class="imgs">
+          <img src="images/icons/fly.png">
+        </div>
+
+        <div class="texts">
+          <p class="tbig">7:45</p>
+          <p class="tsmall">SNG</p>
+        </div>
+
+        <div class="textr">
+          <p class="tsmall">2h 5m</p>
+          <p class="tsmall">Direct</p>
+        </div>
+ 
+          <div class="nprice">
+            <p>$20</p>
+          </div>
+
+          <div class="putton">
+             <a href="#">
+                  <section class="color-2">
+                    <p>
+                      <button class="ree ree-2 ree-2c">SELECT</button>
+                     </p>
+                  </section>
+                </a>
+          </div>
+      </div>
+    </div>
+          </div>
+          <div class="top-item" id="top-image">
+              
+          </div>
+      </div>
+       <a href="review.html"><button class="subs subs-2 subs-2c" style="text-transform: none;">Next plz!</button></a>
+  </div>
+  <!-- END CONTAINER -->
+
+  <!-- FOOTER -->
+  <div style="width: 1366px;margin: 0 -42px;height: 436px;background-color: #272727;padding:90px 75px;border-bottom: 0.1px solid #D9D9D9;">
+    <div class="col-md-3">
+      <img src="images/logo1.png" style="zoom:50%">
+      <p style="padding-top: 10px;padding-left: 50px">
+        <li class="text-footer" >IGO Ltd.</li>
+        <li class="text-footers">NO 29 HANG BAI STREET,</li>
+        <li class="text-footers" >HOAN KIEM, HANOI</li>
+        <a href="#"><li class="text-footers linh">Email: cs@igo.com</li></a>
+        <li class="text-footers" >Hotline:<h style="color: #FED101"> 1900-2098</h></li>
+      </p>
+    </div>
+    <div class="col-md-3">
+      <p style="padding-top: 10px;">
+        <li class="text-footer" >Keep in touch</li>
+        <a href="about.html"><li class="text-footers linh" style="padding-top: 10px;">About us</li></a>
+        <a href="#"><li class="text-footers linh" style="padding-top: 10px;">Join us</li></a>
+        <a href="#"><li class="text-footers linh" style="padding-top: 10px;">Partner with us</li></a>
+        <a href="contact.html"><li class="text-footers linh" style="padding-top: 10px;">Contact us</li></a>
+      </p>
+    </div>
+    <div class="col-md-3">
+      <p style="padding-top: 10px;">
+        <li class="text-footer" >Need a helping hand?</li>
+        <a href="review.html"><li class="text-footers linh" style="padding-top: 10px;">Reviews</li></a>
+        <a href="faq.html"><li class="text-footers linh" style="padding-top: 10px;">FAQs</li></a>
+        <a href="#"><li class="text-footers linh" style="padding-top: 10px;">Privacy Policy</li></a>
+        <a href="#"><li class="text-footers linh" style="padding-top: 10px;">Terms & Conditions</li></a>
+      </p>
+    </div>
+    <div class="col-md-3">
+      <p style="padding-top: 10px;">
+        <li class="text-footer" >Stalk us on</li>
+        <a href="#"><li class="text-footers linh" style="padding-top: 10px;"><i class="fa fa-facebook" aria-hidden="true" style="padding-right: 15px"></i>Facebook</li></a>
+        <a href="#"><li class="text-footers linh" style="padding-top: 10px;"><i class="fa fa-instagram" aria-hidden="true" style="padding-right: 10px;"></i>Instagram</li></a>
+        <a href="#"><li class="text-footers linh" style="padding-top: 10px;"><i class="fa fa-youtube-play" aria-hidden="true"  style="padding-right: 10px;"></i>Youtube</li></a>
+        <a href="#"><li class="text-footers linh" style="padding-top: 10px;"><i class="fa fa-twitter" aria-hidden="true" style="padding-right: 10px;"></i>Twitter</li></a>
+      </p>
+    </div>
+    <div style="width: 1020px;height: 90px; background-color: #FED101; border: 1px solid #FED101;float: right;margin-top: 50px;padding-left: 40px; border-top-left-radius:10px;border-bottom-left-radius:10px;border-bottom-right-radius:10px;margin-right: 16px;">
+      <div class="col-md-6" style="margin-top: 20px;">
+        <p style="font-size: 24px;font-family: R Bold">Wanna get it daily?</p>
+        <p class="text-footers" style="color: #272727;margin-top: 11px;font-size: 18px;font-family: R Regular">Subcribe to receive tips & inspiring travel stories!</p>
+      </div>
+      <div class="col-md-6" style="margin-top: 20px;">
+        <input type="text" name="Email" placeholder="Email" style="font-style: inherit;font-family: R Regular; width:350px;height: 50px;margin-left: -70px;padding: 20px; font-size: 18px;">
+        <a href="#"><button class="sub sub-2 sub-2c" style="background-color: #272727; color: white; height: 50px;border-style: none; border-radius: 10px;width: 140px;font-size: 24px; font-family: R Bold;margin-left: 20px;">Subcribe</button></a>
+      </div>
+    </div>
+  </div>
+  <div style="height: 65px;background-color: #272727;width: 1366px;margin: 0 -42px">
+    <p style="text-align: center;color: white;padding-top: 15px;" class="text-footers">All material herein © 2017 IGO. All Rights Reserved.</p>
+  </div>
+<link property="" rel="stylesheet" href="js/scripts/font-awesome/css/font-awesome.min.css">
+<script async src="js/scripts/bootstrap/js/bootstrap.min.js"></script>
+<script>
+  $(document).ready(function(){
+    $("#fi").click();
+  });
+</script>
+</body>
+</html>

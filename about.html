@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>IGO</title>
+    <script src="js/scripts/jquery.min.js"></script>
+    <link rel="stylesheet" href="js/scripts/bootstrap/css/contact.bootstrap.min.css">
+    <link rel="stylesheet" href="js/scripts/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/contact1.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <script src="js/scripts/script.js"></script>
+    <style>
+
+      a{
+        color: white;
+      }
+      button:focus, button:active{
+        outline: 0;
+        color: #272727;
+      }
+      .navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover{
+        color: #FED101;
+      }
+      #page-container {
+        margin: 0 auto;
+        height: 2800px;
+        width: 1060px;
+        padding: 0;
+        color: #272727;
+        font-family: R Regular;
+        font-size:18px;
+      }
+      #page-container .ji-video{
+        height: 500px;
+        margin:80px auto 150px;
+      }
+      #page-container .ji-bg{
+        height: auto;
+        margin:80px auto;
+        text-align: center;
+      }
+      .text {
+        text-decoration: underline;
+        color: white;
+        font-size: 24px;
+        padding: 16px 32px;
+        font-family: R Bold;
+        width: 320px;
+        text-align: center;
+      }
+      .text-footer{
+        color: white;
+        font-size: 18px;
+        font-family: R Bold;
+      }
+      .text-footers{
+        color: #B1B1B1;
+        font-size: 16px;
+        font-family: R Regular;
+      }
+      .linh:hover{
+        color: white;
+      }
+      .sub {
+        text-transform: none;
+        color: white;
+        cursor: pointer;
+        letter-spacing: 1px;
+        position: relative;
+        -webkit-transition: all 0.3s;
+        -moz-transition: all 0.3s;
+        transition: all 0.3s;
+      }
+      .sub-2 {
+        background: #272727;
+        box-shadow: 0 6px black;
+        -webkit-transition: none;
+        -moz-transition: none;
+        transition: none;
+      }
+      .sub-2c {
+          border-radius: 10px;
+      }
+      .sub-2c:hover {
+        box-shadow: 0 4px black;
+        top: 2px;
+      }
+      .sub-2c:active {
+        box-shadow: 0 0 #272727;
+        top: 6px;
+      } 
+      .ree {
+        width: 300px;
+        height: 45px;
+        font-family: R Bold;
+        border: none;
+        font-size: 24px;
+        color: inherit;
+        background: none;
+        cursor: pointer;
+        display: inline-block;
+        text-transform: none;
+        letter-spacing: 1px;
+        outline: none;
+        position: relative;
+        -webkit-transition: all 0.3s;
+        -moz-transition: all 0.3s;
+        transition: all 0.3s;
+      }
+      .ree-2 {
+        background: #FED101;
+        box-shadow: 0 6px #FCAF03;
+        -webkit-transition: none;
+        -moz-transition: none;
+        transition: none;
+      }
+      .ree-2c {
+        border-radius: 10px;
+      }
+      .ree-2c:hover {
+        box-shadow: 0 4px #FCAF03;
+        top: 2px;
+      }
+      .ree-2c:active {
+        box-shadow: 0 0 #FCAF03;
+        top: 6px;
+        color: #272727;
+      } 
+      .video{
+        cursor: pointer;
+      }
+      .play {
+        display: none;
+      }
+    </style>
+</head>
+<body>
+<!-- HEADER -->
+  <header class="fixed-top scroll-change" data-menu-anima="fade-bottom">
+    <div class="navbar navbar-default icon-menu navbar-fixed-top" role="navigation">
+      <div class="navbar-mini scroll-hide">
+        <div class="container">
+          <div class="nav navbar-nav navbar-right">
+            <ul class="nav navbar-nav lan-menu">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"><img src="images/icons/en.png" alt="flag" />EN <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#" style="color: black;"><img src="images/icons/vi.png" alt="flag" />VN</a></li>
+                </ul>
+                </li>
+            </ul>
+            <form class="navbar-form" role="search">
+              <div  class="input-group">
+                <input style="font-weight: lighter;" type="text" class="form-control" placeholder="Search for...">
+                <span class="input-group-btn"><a href="login.html">
+                <a class="btn btn-default" style="font-family: R Bold;font-size: 14px;height: 40px;padding-top:12px" href="login.html">LOGIN/REGISTER</a>
+                </span>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="navbar navbar-main">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle">
+              <i class="fa fa-bars"></i>
+            </button>
+            <a class="navbar-brand" href="home.html"><img  style="zoom:80%" src="images/logo.png" alt="logo"></a>
+          </div>
+          <div class="collapse navbar-collapse" style="margin-right: 90px;">
+            <ul class="nav navbar-nav" style="font-family: R Bold;float: right;">
+              <li><a href="home1.html"><i class="onlycover" style="background-image:url(images/icons/icon-2.png)"></i><span style="font-size: 18px;">Hostels</span></a></li>
+              <li><a href="home.html"><i class="onlycover" style="background-image:url(images/icons/icon-6.png)"></i><span style="font-size: 18px;">Flights</span></a></li>
+              <li><a href="tip4trip.html"><i class="onlycover" style="background-image:url(images/icons/icon-1.png)"></i><span style="font-size: 18px;">Tips for Trips </span></a></li>
+              <li><a href="contact.html"><i class="onlycover" style="background-image:url(images/icons/icon-4.png)"></i><span style="font-size: 18px;">Contacts</span></a></li>
+            </ul>
+            <div class="nav navbar-nav navbar-right">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+<!-- END HEADER -->
+
+<!-- CONTAINER -->
+  <div id="page-container">
+     <div class="ji-video">
+       <video class="video" width="100%" controls>
+         <source src="images/gallery/hostel.mp4" type="video/mp4">
+         <source src="images/gallery/hostel.ogg" type="video/ogg">
+       </video>
+       <div class="play"></div>
+       <script>
+         $('.video').parent().click(function () {
+             if($(this).children(".video").get(0).paused){
+                 $(this).children(".video").get(0).play();
+                 $(this).children(".play").fadeOut();
+             }else{
+                $(this).children(".video").get(0).pause();
+                 $(this).children(".play").fadeIn();
+             }
+         });
+       </script>
+     </div>
+    <p style="line-height: 1.8"><b>IGO</b> is a global flight search and travel deals website. We use innovative technology to make finding the best value flight, hostel  prices quickly and easily for all Travelers. Our extensive range of partners, great deals and travel content should make us the natural starting point for your travel research.</p>
+    <p style="line-height: 2">We help you search and compare the best flight and hostel prices from hundreds of airlines and agents providers.</p>
+    <center><img style="margin-top:30px" src="images/quote1.jpg" width="960px"></center>
+    <p style="margin-top:30px; line-height:2"><b>IGO</b> is an independent brand within the TPHS subsidiary of The Olivia Group. </p>
+    <p style="line-height: 1.8">Founded in Vietnam, and launched in Asia in September 2017, we now see more than 120 million travelers visit our sites and apps globally each year, using our proprietary and independent technology to search, compare and explore the inventory of thousands of travel partners – from the smallest travel agents to the biggest airlines.</p>
+    <div class="ji-bg">
+      <img src="images/gallery/about.jpg">
+    </div>
+    <p style="line-height: 2">Whether you already know where and when you want to travel, or can be a bit flexible and are seeking some inspiration, <b>IGO</b> is a perfect website to search for and plan the best trips. Subcribing the <b>IGO Get-it-daily</b> is also a great way to keep up with handpicked deals and vacation packages, delivered right to your inbox.</p>
+    <center>
+      <img src="images/quote2.jpg" width="960px">
+      <a href="home.html">
+        <section class="color-2">
+          <p>
+            <button class="ree ree-2 ree-2c">LET'S TAKE A LOOK</button>
+          </p>
+        </section>
+      </a>
+    </center>
+  </div>
+<!-- END CONTAINER -->
+
+<!-- FOOTER -->
+  <div style="width: 1366px;margin: 0 -42px;height: 436px;background-color: #272727;padding:90px 75px;border-bottom: 0.1px solid #D9D9D9;">
+    <div class="col-md-3">
+      <img src="images/logo1.png" style="zoom:50%">
+      <p style="padding-top: 10px;padding-left: 50px">
+        <li class="text-footer" >IGO Ltd.</li>
+        <li class="text-footers">NO 29 HANG BAI STREET,</li>
+        <li class="text-footers" >HOAN KIEM, HANOI</li>
+        <a href="#"><li class="text-footers linh">Email: cs@igo.com</li></a>
+        <li class="text-footers" >Hotline:<h style="color: #FED101"> 1900-2098</h></li>
+      </p>
+    </div>
+    <div class="col-md-3">
+      <p style="padding-top: 10px;">
+        <li class="text-footer" >Keep in touch</li>
+        <a href="about.html"><li class="text-footers linh" style="padding-top: 10px;">About us</li></a>
+        <a href="#"><li class="text-footers linh" style="padding-top: 10px;">Join us</li></a>
+        <a href="#"><li class="text-footers linh" style="padding-top: 10px;">Partner with us</li></a>
+        <a href="contact.html"><li class="text-footers linh" style="padding-top: 10px;">Contact us</li></a>
+      </p>
+    </div>
+    <div class="col-md-3">
+      <p style="padding-top: 10px;">
+        <li class="text-footer" >Need a helping hand?</li>
+        <a href="review.html"><li class="text-footers linh" style="padding-top: 10px;">Reviews</li></a>
+        <a href="faq.html"><li class="text-footers linh" style="padding-top: 10px;">FAQs</li></a>
+        <a href="#"><li class="text-footers linh" style="padding-top: 10px;">Privacy Policy</li></a>
+        <a href="#"><li class="text-footers linh" style="padding-top: 10px;">Terms & Conditions</li></a>
+      </p>
+    </div>
+    <div class="col-md-3">
+      <p style="padding-top: 10px;">
+        <li class="text-footer" >Stalk us on</li>
+        <a href="#"><li class="text-footers linh" style="padding-top: 10px;"><i class="fa fa-facebook" aria-hidden="true" style="padding-right: 15px"></i>Facebook</li></a>
+        <a href="#"><li class="text-footers linh" style="padding-top: 10px;"><i class="fa fa-instagram" aria-hidden="true" style="padding-right: 10px;"></i>Instagram</li></a>
+        <a href="#"><li class="text-footers linh" style="padding-top: 10px;"><i class="fa fa-youtube-play" aria-hidden="true"  style="padding-right: 10px;"></i>Youtube</li></a>
+        <a href="#"><li class="text-footers linh" style="padding-top: 10px;"><i class="fa fa-twitter" aria-hidden="true" style="padding-right: 10px;"></i>Twitter</li></a>
+      </p>
+    </div>
+    <div style="width: 1020px;height: 90px; background-color: #FED101; border: 1px solid #FED101;float: right;margin-top: 50px;padding-left: 40px; border-top-left-radius:10px;border-bottom-left-radius:10px;border-bottom-right-radius:10px;margin-right: 16px;">
+      <div class="col-md-6" style="margin-top: 20px;">
+        <p style="font-size: 24px;font-family: R Bold">Wanna get it daily?</p>
+        <p class="text-footers" style="color: #272727;margin-top: 10px;font-size: 18px;font-family: R Regular">Subcribe to receive tips & inspiring travel stories!</p>
+      </div>
+      <div class="col-md-6" style="margin-top: 20px;">
+        <input type="text" name="Email" placeholder="Email" style="font-style: inherit;font-family: R Regular; width:350px;height: 50px;margin-left: -70px;padding: 20px; font-size: 18px;">
+        <a href="#"><button class="sub sub-2 sub-2c" style="background-color: #272727; color: white; height: 50px;border-style: none; border-radius: 10px;width: 140px;font-size: 24px; font-family: R Bold;margin-left: 20px;">Subcribe</button></a>
+      </div>
+    </div>
+  </div>
+  <div style="height: 65px;background-color: #272727;width: 1366px;margin: 0 -42px">
+    <p style="text-align: center;color: white;padding-top: 15px;" class="text-footers">All material herein © 2017 IGO. All Rights Reserved.</p>
+  </div>
+<!-- END FOOTER -->
+<link property="" rel="stylesheet" href="js/scripts/font-awesome/css/font-awesome.min.css">
+<script async src="js/scripts/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

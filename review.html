@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>IGO</title>
+    <script src="js/scripts/jquery.min.js"></script>
+    <link rel="stylesheet" href="js/scripts/bootstrap/css/pay.bootstrap.min.css">
+    <link rel="stylesheet" href="css/build.css"/>
+    <link rel="stylesheet" href="css/review1.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <style>
+      li:active{
+        color: #272727;
+      }
+      a:hover, a:active{
+        color: #272727;
+      }
+      button:focus{
+        outline: 0;
+      }
+      .text-footer{
+        color: white;
+        font-size: 18px;
+        font-family: R Bold;
+      }
+      .text-footers{
+        color: #B1B1B1;
+        font-size: 16px;
+        font-family: R Regular;
+      }
+      body{
+        background-color: white;
+        color:#272727;
+        font-feature-settings: "onum" off, "pnum" off, "lnum" on, "tnum" on;
+        -moz-font-feature-settings: "onum=0, pnum=0, lnum=1, tnum=1";       /* Firefox */
+        -webkit-font-feature-settings: "onum" off, "pnum" off, "lnum" on, "tnum" on;  /* WebKit */
+        -o-font-feature-settings: "onum" off, "pnum" off, "lnum" on, "tnum" on;       /* Opera */
+      }
+      input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      } 
+      input[type="number"] {
+          -moz-appearance: textfield;
+      }
+      .lin{
+        border: 1px solid #FED101;
+        width: 55px;
+        margin-top: -7px;
+        margin-right: 35px;
+        margin-left: 5px;
+      }
+      .numberCircle {
+        border-radius: 50%;
+        margin-left: -100px;
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border: 2px solid #FED101;
+        color: #FED101;
+        text-align: center;
+        font-size: 12px
+      }
+      .numberCircle1 {
+        border-radius: 50%;
+        margin-left: -110px;
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border: 2px solid;
+        text-align: center;
+        font-size: 12px
+      }
+      .numberCircles {
+        border-radius: 50%;
+        margin-left: -177px;
+        display: inline-block;
+        width: 36px;
+        height: 36px;
+        border: 2px solid #FED101;
+        color: #FED101;
+        text-align: center;
+        font-size: 24px
+      }
+      .numberCircles1 {
+        border-radius: 50%;
+        margin-left: -156px;
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border: 2px solid;
+        text-align: center;
+        font-size: 12px
+      }
+      .cont{
+        width: 1060px;
+        height:695px;
+        position: relative;
+        margin: 0 auto;
+        margin-bottom: 50px;
+      }
+      .booking1{
+        height: 1900px;
+      }
+      .title{
+        font-family: R Bold;
+        font-size: 24px;
+        margin: 100px 0 22px 0;
+      }
+      .login{
+        width: 660px;
+        height: 111px;
+        border-radius: 5px;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+        position: absolute;
+        background-color: white
+      }
+      .logintext1, .logintext2{
+        font-family: R Regular;
+        font-size: 16px;
+        margin-left: 20px;
+      }
+      .logintext1{
+        margin: 16px 20px;
+      }
+      .logintext2{
+        margin-left: 70px;
+      }
+      .flightinfo{
+        width: 340px;
+        height: 320px;
+        border-radius: 5px;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+        right: 0;
+        position: absolute;
+        overflow: hidden;
+        background-color: white
+      }
+      .flightname{
+        width: 340px;
+        height: 80px;
+        background-color: #ececec;
+      }
+      .detail{
+        display: none;
+      }
+      .title1{
+        font-family: R Regular;
+        font-size: 24px;
+        margin: 160px 0 15px 0;
+      }
+      table{
+        width: calc(100% - 40px);
+        height:213px;
+        margin: 20px auto 5px;
+        text-align: left;
+      }
+      th{
+        width: 50%;
+        font-weight: normal;
+        position: relative;
+      }
+      .title2{
+        font-family: R Regular;
+        font-size: 16px;
+      }
+      .input{
+        height: 40px;
+        border-radius: 3px;
+        background-color: #ececec;
+        font-family: R Regular;
+        font-size: 18px;
+        box-sizing: border-box;
+        display: inline-block;
+        border: 1px solid #ececec;
+        width: 100%;
+        padding: 10px 10px;
+        margin: 10px 0 13px ;
+      }
+      .input:focus{
+        border-color: #fed101;
+        outline: 0;
+      }
+      .numvung{
+        border-radius: 3px;
+        background-color: #ececec;
+        font-family: R Regular;
+        font-size: 18px;
+        box-sizing: border-box;
+        display: inline-block;
+        border: 1px solid #ececec;
+        width: 97%;
+        padding: 5px;
+        margin: 13px 0;
+        position: absolute;
+        height: 40px;
+        padding-right: 10px;
+      }
+      .numvung:focus{
+        border-color: #fed101;
+        outline: 0;
+      }
+      .chuy{
+        font-family: R Regular;
+        font-size: 12px;
+        color: #575756;
+      }
+      .butt{
+        right: 20px;
+        position: absolute;
+        width: 121px;
+        height: 40px;
+        border:1px solid #272727;
+        font-family: R Bold;
+        font-size: 16px;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      .butt:hover{
+        color: white;
+      }
+      .butts{
+        width: 121px;
+          height: 40px;
+        background-color: #fed101;
+        border:1px solid #272727;
+        font-family: R Bold;
+        font-size: 16px;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-left: 520px;
+        margin-top: 16px;
+      }
+      .title3{
+        font-family: R Bold;
+        font-size: 18px;
+        margin: 20px;
+      }
+      .info{
+        width:300px ;
+        height:160px ;
+        margin: 30px 30px;
+        position: relative;
+      }
+      .flightseat{
+        position: absolute;
+        font-family: R Regular;
+        font-size: 18px;
+        color: #919191;
+        left: 130px;
+        top: -5px;
+      }
+      .round{
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: #ffcb00;
+        position: absolute;
+      }
+      .line{
+        width: 2px;
+        height: 62px;
+        border-radius: 1px;
+        background-color: #919191;
+        margin: 47px 4px;
+        position: absolute;
+      }
+      .line1{
+        height: 60px;
+        width: 4px;
+        background-color:white;
+        position: absolute;
+      }
+      .v0, .v1, .v2{
+        cursor: pointer;
+      }
+      .vang{
+        color: #FED101;
+        cursor: pointer; 
+       }
+      .vang:hover{
+        color: #FED101
+      }
+      .linh:hover{
+        color: white;
+      }
+      .sub {
+        text-transform: none;
+        color: white;
+        cursor: pointer;
+        letter-spacing: 1px;
+        position: relative;
+        -webkit-transition: all 0.3s;
+        -moz-transition: all 0.3s;
+        transition: all 0.3s;
+      }
+      .sub-2 {
+        background: #272727;
+        box-shadow: 0 6px black;
+        -webkit-transition: none;
+        -moz-transition: none;
+        transition: none;
+      }
+      .sub-2c {
+        border-radius: 10px;
+      }
+      .sub-2c:hover {
+        box-shadow: 0 4px black;
+        top: 2px;
+      }
+
+      .sub-2c:active {
+        box-shadow: 0 0 black;
+        top: 6px;
+      }
+      .sub1 {
+        margin: 1180px 560px 0;
+        text-transform: none;
+        color: white;
+        cursor: pointer;
+        letter-spacing: 1px;
+        position: relative;
+        -webkit-transition: all 0.3s;
+        -moz-transition: all 0.3s;
+        transition: all 0.3s;
+      }
+      .sub1-2 {
+        background: #272727;
+        box-shadow: 0 6px black;
+        -webkit-transition: none;
+        -moz-transition: none;
+        transition: none;
+      }
+      .sub1-2c {
+          border-radius: 10px;
+      }
+      .sub1-2c:hover {
+        box-shadow: 0 4px black;
+        top: 2px;
+      }
+      .sub1-2c:active {
+        box-shadow: 0 0 black;
+        top: 6px;
+      }    
+      .subs {
+        float: right;
+        margin: 370px -20px;
+        font-family: R Bold;
+        border: none;
+        font-size: 18px;
+        color: white;
+        background: none;
+        cursor: pointer;
+        display: inline-block;
+        text-transform: none;
+        letter-spacing: 1px;
+        outline: none;
+        position: relative;
+        -webkit-transition: all 0.3s;
+        -moz-transition: all 0.3s;
+        transition: all 0.3s;
+        width: 200px;
+        height: 50px;
+      }
+      .subs-2 {
+        background: #272727;
+        box-shadow: 0 6px black;
+        -webkit-transition: none;
+        -moz-transition: none;
+        transition: none;
+      }
+      .subs-2c {
+          border-radius: 10px;
+      }
+      .subs-2c:hover {
+        box-shadow: 0 4px black;
+        top: 2px;
+        color: white;
+      }
+      .subs-2c:active {
+        color: white;
+        box-shadow: 0 0 black;
+        top: 6px;
+      }
+      .ree {
+        width: 200px;
+        border:none;
+        text-transform: none;
+        color: white;
+        cursor: pointer;
+        letter-spacing: 1px;
+        position: relative;
+        -webkit-transition: all 0.3s;
+        -moz-transition: all 0.3s;
+        transition: all 0.3s;
+      }
+      .ree-2 {
+        background: #FED101;
+        box-shadow: 0 6px #FCAF03;
+        -webkit-transition: none;
+        -moz-transition: none;
+        transition: none;
+      }
+      .ree-2c {
+        border-radius: 10px;
+      }
+      .ree-2c:hover {
+        box-shadow: 0 4px #FCAF03;
+        top: 2px;
+      }
+      .ree-2c:active {
+        box-shadow: 0 0 #FCAF03;
+        top: 6px;
+      }       
+      .checkbox label::after {
+        display: inline-block;
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        left: 0;
+        top: 0;
+        margin-left: -20px;
+        padding-left: 1px;
+        padding-top: 0px;
+        font-size: 18px;
+        color: #555555;
+      }
+      .checkbox label::before {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        left: -3px;
+        margin-left: -20px;
+        border: 1px solid #676767;
+        border-radius: 3px;
+        background-color: #fff;
+        -webkit-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+        -o-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+        transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+      }
+      .checkbox input[type=checkbox], .checkbox-inline input[type=checkbox], .radio input[type=radio], .radio-inline input[type=radio] {
+        position: absolute;
+        margin-top: 25px;
+        margin-left: -20px;
+        width: 20px;
+        height: 20px;
+      }
+      .card{
+        display: inline-block;
+        margin: 15px 8.4px;
+      }
+      .cards{
+        width: 620px;
+        height: 75px;
+        margin: 0 20px;
+      }
+      .noti{
+        width: calc(100% - 40px);
+        height: 60px;
+        border-radius: 4px;
+        margin: 20px;
+        padding: 9px;
+        font-family: R Regular;
+        font-size: 15px
+        color#575756;
+      }
+      .time{
+        margin: 20px auto;
+        font-family: R Regular
+      }
+      .lime{
+        display: inline-block;
+        font-size: 18px;
+        color: #1C94E0;
+      }
+    </style>
+</head>
+<body>
+<!-- HEADER -->
+  <header class="fixed-top scroll-change" data-menu-anima="fade-bottom">
+    <div class="navbar navbar-default icon-menu navbar-fixed-top" role="navigation">
+      <div class="navbar navbar-main" style="height: 100px;">
+        <div class="container" style="height: 100px;">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle">
+              <i class="fa fa-bars"></i>
+            </button>
+            <a  href="home.html"><img  style="zoom:80%;margin: 25px auto;" src="images/logo.png" alt="logo"></a>
+          </div>
+          <div  style="margin-right: 90px;margin-top: 35px;">
+            <ul style="font-family: R Bold;margin-top: 25px;margin-left: 460px;font-size: 18px;width: 100%">
+              <li style="display: inline-block;"><a href="review.html"><span style="font-size: 18px;color: #FED101">Booking</span></a><div class="numberCircle">1</div></li>
+              <li style="display: inline-block;"><div class="lin"></div></li>
+              <li style="display: inline-block;"><h class="v0" href="#" style="word-spacing: 15px;"><span style="font-size: 18px;">Review </span><div class="numberCircle1">2</div></li></h>
+              <li style="display: inline-block;margin-right: -10px"><div class="lin"></div></li>
+              <li style="display: inline-block;"><h class="v1" href="#" style="word-spacing: 3px;"><span style="font-size: 18px;margin-left: 7px;">Payment </span><div class="numberCircle1">3</div></li></h>
+              <li style="display: inline-block;"><div class="lin"></div></li>
+              <li style="display: inline-block;margin-left: -5px;"><h class="v2" href="#"><span style="font-size: 18px;">Complete</span><div class="numberCircle1">4</div></li></h>
+            </ul>
+          </div>
+          <div class="nav navbar-nav navbar-right">
+            <ul class="nav navbar-nav lan-menu">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"><img src="images/icons/en.png" alt="flag" />EN <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#" style="color: #272727;"><img src="images/icons/vi.png" alt="flag" />VN</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+<!-- END HEADER -->
+
+<!-- CONTAINER -->
+  <div id="page-container">
+    <div style="width: 100%; height: 1%; "></div>
+    <div class="cont booking">
+      <div class="title">Booking</div>
+      <div class="login">
+        <div class="logintext1">
+          <a href="login.html" style="font-family: R Bold; color: #fed101; text-decoration: none">Log in</a> or <a href="login.html" style="font-family: R Bold; color: #fed101; text-decoration: none;">Register</a> to enjoy our benefits.
+        </div>
+        <img src="images/icons/traveler.png" style="zoom:30%; position: absolute; margin-left:80px; margin-top: 15px">
+        <div class="logintext2">
+          <a style="font-family: R Bold; color: #272727">Travelers Picker</a></br>Book faster and easier by using your saved contact and passengers info.
+        </div>
+      </div>
+      <div class="flightinfo">
+        <div class="flightname">
+          <div style="margin: 20px 30px; position: absolute; font-family: R Regular; font-size: 16px">
+            <a style="font-family: R Bold; font-size: 18px; color: #272727">Flight 01</a></br>Thursday, October 5th 2017
+          </div>
+        </div>
+        <div class="info">
+          <img src="images/icons/jetstar1.png">
+          <div class="flightseat">
+            <a style="font-family: R Bold; color: #272727">JetStar</a></br>JS - 161
+          </div>
+          <div class="round" style="margin-top: 35px"></div>
+          <div class="flightseat" style="left: 20px; margin-top: 60px">
+            <a style="font-family: R Bold; color: #272727">05:40</a></br><a style="font-size: 15px">Thu, Oct 5</a>
+          </div>
+          <div class="flightseat" style="margin-top: 60px">
+            <a style="color: #272727">Hanoi (HAN)</a></br><a style="font-size: 15px">Noi Bai Intl</a>
+          </div>
+          <div class="line" style="margin: 52px 4px"></div>
+          <div class="round" style="margin-top: 120px"></div>
+          <div class="flightseat" style="left: 20px; margin-top: 145px">
+            <a style="font-family: R Bold; color: #272727">07:45</a></br><a style="font-size: 15px">Thu, Oct 5</a>
+          </div>
+          <div class="flightseat" style="margin-top: 145px">
+            <a style="color: #272727">HCM City (SGN)</a></br><a style="font-size: 15px">Tan Son Nhat Intl</a>
+          </div>
+        </div>
+      </div>
+      <div class="chuy" style="position: absolute; left: 725px; top: 390px; font-size: 15px">* All times shown are in local airport time</div>
+      <div class="title1">Contact information</div>
+      <div class="login" style="height: 340px">
+        <table>
+          <tr>
+            <th style="padding-right: 10px">
+              <div class="title2">Middle & First Name</div>
+              <form><input class="input" type="text" name=""></form>
+              <div class="chuy">as on ID card (without title or punctuation)</div>
+            </th>
+            <th style="padding-left: 10px">
+              <div class="title2">Last Name</div>
+              <form><input class="input" type="text" name=""></form>
+              <div class="chuy">as on ID card (without title or punctuation)</div>
+            </th>
+          </tr>
+          <tr>
+            <th style="padding-top: 30px; padding-right: 10px; position: relative;">
+              <div class="title2">Contact’s mobile phone number</div>
+              <form>
+                <select name="mavung" class="numvung" style="margin-top: 12px; width: 30%">
+                  <option><img src="images/icons/en.png" alt="flag" />+15</option>
+                  <option><img src="images/icons/en.png" alt="flag" />+37</option>
+                  <option selected><img  src="images/icons/en.png" alt="flag" />+84</option>
+                  <option><img src="images/icons/en.png" alt="flag" />+08</option>
+                </select>
+              </form>
+              <form><input class="input" type="number" name="" style="width: 63%; right: 10px; position: absolute;margin-top: 12px"></form>
+              <div class="chuy" style="padding-top: 65px">e.g. +62812345678, for Country Code (+62) and Mobile No. 0812345678</div>
+            </th>
+            <th style="padding-top: 16px; padding-left: 10px">
+              <div class="title2">Contact’s email address</div>
+              <form><input class="input" type="email" name=""></form>
+              <div class="chuy">e.g. email@example.com</div>
+            </th>
+          </tr>
+        </table>
+        <a href="#">
+               <section class="color-2">
+                 <p>
+                   <button class="butt next1 sub sub-2 sub-2c" onclick="topFunction()" style="left: 520px;" title="Go to top">Next plz!</button>
+                  </p>
+               </section>
+             </a>
+      </div>
+      <div class="detail">
+        <div class="title1" style="margin: 380px 0 15px 0">Traveler details</div>
+        <div class="login" style="height: 300px">
+          <div class="title3">Adult Traveler (12+)</div>
+          <table>
+            <tr>
+              <th style="padding-right: 10px; top: -20px">
+                <div class="title2">Middle & First Name</div>
+                <form><input class="input" type="text" name=""></form>
+                <div class="chuy">as on ID card (without title or punctuation)</div>
+              </th>
+              <th style="padding-left: 10px; top: -20px">
+                <div class="title2">Last Name</div>
+                <form><input class="input" type="text" name=""></form>
+                <div class="chuy">as on ID card (without title or punctuation)</div>
+              </th>
+            </tr>
+            <tr>
+              <th style="padding-right: 10px; top: -40px;">
+                <div class="title2">Baggage Hanoi - Ho Chi Minh City</div>
+                <form>
+                  <select name="mavung" class="numvung" style=" margin-top: 12px;">
+                    <option>0kg-$0</option>
+                    <option>15kg-$10</option>
+                    <option>20kg-$20</option>
+                    <option>35kg-$25</option>
+                    <option>40kg-$30</option>
+
+                  </select>
+                </form>
+              </th>
+              <th style="padding-left: 10px; top: -40px">
+                <div class="title2">Baggage Ho Chi Minh City - Hanoi</div>
+                <form>
+                  <select name="mavung" class="numvung" style=" margin-top: 12px;">
+                    <option>0kg-$0</option>
+                    <option>15kg-$10</option>
+                    <option>20kg-$20</option>
+                    <option>35kg-$25</option>
+                    <option>40kg-$30</option>
+
+                  </select>
+                </form>
+              </th>
+            </tr>
+          </table>
+        </div>
+        <div class="login" style="height: 400px; margin-top: 330px">
+          <div class="title3">Child Traveler (2 - 12)</div>
+          <table>
+            <tr>
+              <th style="padding-right: 10px">
+                <div class="title2">Middle & First Name</div>
+                <form><input class="input" type="text" name=""></form>
+                <div class="chuy">as on ID card (without title or punctuation)</div>
+              </th>
+              <th style="padding-left: 10px">
+                <div class="title2">Last Name</div>
+                <form><input class="input" type="text" name=""></form>
+                <div class="chuy">as on ID card (without title or punctuation)</div>
+              </th>
+            </tr>
+            <tr>
+              <th style="padding-top: 25px">
+                <div class="title2">Date of Birth</div>
+                <form style="height: 50px">
+                  <select name="Date" class="numvung" style="padding-right: 5px; width: 25%">
+                    <option>01</option>
+                    <option>02</option>
+                    <option>03</option>
+                    <option>04</option>
+                    <option>05</option>
+                    <option>06</option>
+                    <option>07</option>
+                    <option>08</option>
+                    <option>09</option>
+                    <option>10</option>
+                    <option>11</option>
+                    <option>12</option>
+                    <option>13</option>
+                    <option>14</option>
+                    <option>15</option>
+                    <option>16</option>
+                    <option>17</option>
+                    <option>18</option>
+                    <option>19</option>
+                    <option>20</option>
+                    <option>21</option>
+                    <option>22</option>
+                    <option>23</option>
+                    <option>24</option>
+                    <option>25</option>
+                    <option>26</option>
+                    <option>27</option>
+                    <option>28</option>
+                    <option>29</option>
+                    <option>30</option>
+                    <option>31</option>
+                  </select>
+                  <select name="Month" class="numvung" style="margin-left: 87px; width: 40%">
+                    <option>January</option>
+                    <option>Febuary</option>
+                    <option>March</option>
+                    <option>April</option>
+                    <option>May</option>
+                    <option>June</option>
+                    <option>July</option>
+                    <option>August</option>
+                    <option>September</option>
+                    <option>October</option>
+                    <option>November</option>
+                    <option>December</option>
+                  </select>
+                  <select name="Year" class="numvung" style="right: 10px; width: 25%">
+                    <option>1998</option>
+                    <option>1999</option>
+                    <option>2000</option>
+                    <option>2001</option>
+                    <option>2002</option>
+                    <option>2003</option>
+                    <option>2004</option>
+                    <option>2005</option>
+                    <option>2006</option>
+                  </select>
+                </form>
+              </th>
+              <th></th>
+            </tr>
+            <tr>
+              <th style="padding-right: 10px; padding-top: 30px">
+                <div class="title2">Baggage Hanoi - Ho Chi Minh City</div>
+                <form>
+                  <select name="mavung" class="numvung" style=" margin-top: 12px">
+                    <option>0kg-$0</option>
+                    <option>15kg-$10</option>
+                    <option>20kg-$20</option>
+                    <option>35kg-$25</option>
+                    <option>40kg-$30</option>
+
+                  </select>
+                </form>
+              </th>
+              <th style="padding-left: 10px; padding-top: 30px">
+                <div class="title2">Baggage Ho Chi Minh City - Hanoi</div>
+                <form>
+                  <select name="mavung" class="numvung" style="; margin-top: 12px">
+                    <option>0kg-$0</option>
+                    <option>15kg-$10</option>
+                    <option>20kg-$20</option>
+                    <option>35kg-$25</option>
+                    <option>40kg-$30</option>
+
+                  </select>
+                </form>
+              </th>
+            </tr>
+          </table>
+        </div>
+        <div class="login" style="height: 400px; margin-top: 755px">
+          <div class="title3">Infant Traveler (2-)</div>
+          <table>
+            <tr>
+              <th style="padding-right: 10px">
+                <div class="title2">Middle & First Name</div>
+                <form><input class="input" type="text" name=""></form>
+                <div class="chuy">as on ID card (without title or punctuation)</div>
+              </th>
+              <th style="padding-left: 10px">
+                <div class="title2">Last Name</div>
+                <form><input class="input" type="text" name=""></form>
+                <div class="chuy">as on ID card (without title or punctuation)</div>
+              </th>
+            </tr>
+            <tr>
+              <th style="padding-top: 25px">
+                <div class="title2">Date of Birth</div>
+                <form style="height: 50px">
+                  <select name="Date" class="numvung" style="padding-right: 5px; width: 25%">
+                    <option>01</option>
+                    <option>02</option>
+                    <option>03</option>
+                    <option>04</option>
+                    <option>05</option>
+                    <option>06</option>
+                    <option>07</option>
+                    <option>08</option>
+                    <option>09</option>
+                    <option>10</option>
+                    <option>11</option>
+                    <option>12</option>
+                    <option>13</option>
+                    <option>14</option>
+                    <option>15</option>
+                    <option>16</option>
+                    <option>17</option>
+                    <option>18</option>
+                    <option>19</option>
+                    <option>20</option>
+                    <option>21</option>
+                    <option>22</option>
+                    <option>23</option>
+                    <option>24</option>
+                    <option>25</option>
+                    <option>26</option>
+                    <option>27</option>
+                    <option>28</option>
+                    <option>29</option>
+                    <option>30</option>
+                    <option>31</option>
+                  </select>
+                  <select name="Month" class="numvung" style="margin-left: 87px; width: 40%">
+                    <option>January</option>
+                    <option>Febuary</option>
+                    <option>March</option>
+                    <option>April</option>
+                    <option>May</option>
+                    <option>June</option>
+                    <option>July</option>
+                    <option>August</option>
+                    <option>September</option>
+                    <option>October</option>
+                    <option>November</option>
+                    <option>December</option>
+                  </select>
+                  <select name="Year" class="numvung" style="right: 10px; width: 25%">
+                    <option>1998</option>
+                    <option>1999</option>
+                    <option>2000</option>
+                    <option>2001</option>
+                    <option>2002</option>
+                    <option>2003</option>
+                    <option>2004</option>
+                    <option>2005</option>
+                    <option>2006</option>
+                  </select>
+                </form>
+              </th>
+              <th></th>
+            </tr>
+            <tr>
+              <th style="padding-right: 10px; padding-top: 30px">
+                <div class="title2">Baggage Hanoi - Ho Chi Minh City</div>
+                <form>
+                  <select name="mavung" class="numvung" style=" margin-top: 12px">
+                    <option>0kg-$0</option>
+                    <option>15kg-$10</option>
+                    <option>20kg-$20</option>
+                    <option>35kg-$25</option>
+                    <option>40kg-$30</option>
+
+                  </select>
+                </form>
+              </th>
+              <th style="padding-left: 10px; padding-top: 30px">
+                <div class="title2">Baggage Ho Chi Minh City - Hanoi</div>
+                <form>
+                  <select name="mavung" class="numvung" style="; margin-top: 12px">
+                    <option>0kg-$0</option>
+                    <option>15kg-$10</option>
+                    <option>20kg-$20</option>
+                    <option>35kg-$25</option>
+                    <option>40kg-$30</option>
+
+                  </select>
+                </form>
+              </th>
+            </tr>
+          </table>
+        </div>
+        <a href="#">
+          <section class="color-2">
+            <p>
+              <button class="butt next2 sub1 sub1-2 sub1-2c" onclick="topFunction()" title="Go to top">Next plz!</button>
+             </p>
+          </section>
+        </a>
+      </div>
+    </div>
+    <div class="cont review" style="display: none; height: 1100px">
+      <div class="title">Review</div>
+      <div class="login" style="width: 100%; height: 60px; overflow: hidden;">
+        <div class="line1"></div>
+        <div class="logintext2" style=" margin: 21px 70px;" ><img src="images/icons/check.png" style="zoom:20%;margin: 0 -170px;"><p style="margin: -20px 10px; line-height: 1.3">The price has been confirmed by the firm. Please check your booking information and continue to make a payment.</p></div>
+      </div>
+      <div class="title1" style="margin: 110px 0 15px 0">Flight information</div>
+
+      <div class="login" style="height: 260px; overflow: hidden;">
+        <div class="line1" style="height: 285px"></div>
+        <div class="flightname" style="background-color: white">
+          <div style="margin: 20px; position: absolute; font-family: R Regular; font-size: 16px">
+            <a style="font-family: R Bold; font-size: 18px; color: #272727">Depart</a></br>Thursday, October 5th 2017
+          </div>
+        </div>
+        <div class="info" style="width:520px ; margin: 15px 70px">
+          <img src="images/icons/jetstar1.png" style="right: 0 ;position: absolute; width: 20%">
+          <div class="flightseat" style="text-align: right; top: 50px; right: 0">
+            <a style="font-family: R Bold; color: #272727; ">JetStar</a> JS - 161
+          </div>
+          <div class="round" style="left: 95px"></div>
+          <div class="flightseat" style="left: 0; text-align: right;">
+            <a style="font-family: R Bold; color: #272727;">05:40</a></br><a style="font-size: 15px">Thu, Oct 5</a>
+          </div>
+          <div class="flightseat" style="">
+            <a style="color: #272727">Hanoi (HAN)</a></br><a style="font-size: 15px">Noi Bai Intl</a>
+          </div>
+          <div class="line" style="left: 95px; top: -25px; height: 62px"></div>
+          <div class="round" style="margin-top: 95px; left: 95px"></div>
+          <div class="flightseat" style="left: 0; margin-top: 95px; text-align: right;">
+            <a style="font-family: R Bold; color: #272727">07:45</a></br><a style="font-size: 15px">Thu, Oct 5</a>
+          </div>
+          <div class="flightseat" style="margin-top: 95px">
+            <a style="color: #272727">HCM City (SGN)</a></br><a style="font-size: 15px">Tan Son Nhat Intl</a>
+          </div>
+        </div>
+      </div>
+      <div class="flightinfo" style="margin-top: 90px; height: 200px">
+        <div class="flightname" style="bottom: 0; position: absolute; height: 60px">
+          <div style="margin: 20px; position: absolute; font-family: R Regular; font-size: 16px">
+            <a style="font-family: R Bold; font-size: 18px; color: #272727">Total price</a>
+          </div>
+            <div style="position: absolute; right: 0; font-family: R Bold;font-size: 24px; margin:13px 20px">$40</div>
+        </div>
+        <div class="info" style="margin: 20px">
+          <div style="font-family: R Regular; font-size: 16px; margin-bottom: 15px">JetStar Pacific Airline (Adult) x 1</div>
+          <div style="position: absolute; right: 0; font-family: R Regular;font-size: 16px; margin:13px 0; top: -13px">$42</div>
+          <div style="font-family: R Regular; font-size: 16px; margin-bottom: 15px">Luggage fee</div>
+          <div style="position: absolute; right: 0; font-family: R Regular;font-size: 16px; margin:13px 0; top: 24px">FREE</div>
+          <div style="font-family: R Regular; font-size: 16px; margin-bottom: 15px">Utility fee</div>
+          <div style="position: absolute; right: 0; font-family: R Regular;font-size: 16px; margin:13px 0; top: 61px">-$2</div>
+        </div>
+      </div>
+      <div class="chuy" style="position: absolute; top: 500px; font-size: 15px; right: 0; width: 337px; color: #575756">By pressing Transfer Payment you agree to our <b><a style="color: #1C94E0" href="#">Term & Conditions</a></b> and <b><a style="color: #1C94E0" href="#">Privacy Policy</a></b>.</div>
+      <a href="#">
+         
+        <section class="color-2">
+          <p>
+            <button class="butt next3 subs subs-2 subs-2c"  onclick="topFunction()" title="Go to top">Transfer Payment</button>
+           </p>
+        </section>
+      </a>
+        
+      <div class="flightinfo" style="height: 60px; ">
+        <div class="logintext2" style="margin: 20px; font-family: R Regular">
+        Booking code
+        <div class="logintext2" style="right: 0; text-align: right; top: 19px; position: absolute;margin-right: 20px; font-family: R Bold">1234567</div>
+      </div>
+      </div>
+      <div class="login" style="height: 260px; overflow: hidden; margin-top: 290px">
+        <div class="line1" style="height: 285px"></div>
+        <div class="flightname" style="background-color: white">
+          <div style="margin: 20px; position: absolute; font-family: R Regular; font-size: 16px">
+            <a style="font-family: R Bold; font-size: 18px; color: #272727">Return</a></br>Wednesday, October 20th 2017
+          </div>
+        </div>
+        <div class="info" style="width:520px ; margin: 15px 70px">
+          <img src="images/icons/jetstar1.png" style="right: 0 ;position: absolute; width: 20%">
+          <div class="flightseat" style="text-align: right; top: 50px; right: 0">
+            <a style="font-family: R Bold; color: #272727; ">JetStar</a> JS - 257
+          </div>
+          <div class="round" style="left: 95px"></div>
+          <div class="flightseat" style="left: 0; text-align: right;">
+            <a style="font-family: R Bold; color: #272727">20:40</a></br><a style="font-size: 15px">Wed, Oct 20</a>
+          </div>
+          <div class="flightseat" style="">
+            <a style="color: #272727">HCM City (SGN)</a></br><a style="font-size: 15px">Tan Son Nhat Intl</a>
+          </div>
+          <div class="line" style="left: 95px; top: -25px; height: 62px"></div>
+          <div class="round" style="margin-top: 95px; left: 95px"></div>
+          <div class="flightseat" style="left: 0; margin-top: 95px; text-align: right;">
+            <a style="font-family: R Bold; color: #272727">22:45</a></br><a style="font-size: 15px">Wed, Oct 20</a>
+          </div>
+          <div class="flightseat" style="margin-top: 95px">
+            <a style="color: #272727">Hanoi (HAN)</a></br><a style="font-size: 15px">Noi Bai Intl</a>
+          </div>
+        </div>
+      </div>
+      <div class="title1" style="margin: 590px 0 15px 0">Refund information</div>
+      <div class="login" style="height: 200px; overflow: hidden;">
+        <div class="line1" style="height: 285px"></div>
+        <div class="info" style="width:520px ; margin: 30px 70px; height: 55px">
+          <img src="images/icons/jetstar1.png" style="position: absolute;">
+          <div class="flightseat" style="text-align: right; top: 30px; left: 0">
+            <a style="font-family: R Bold; color: #272727; ">JS - 161</a>
+          </div>
+          <a style="font-size: 18px; font-family: R Regular; padding-left: 120px; position: absolute; margin-top: 5px">Hanoi (HAN) - HCM City (SGN)</a>
+          <a style="font-family: R Bold; font-size: 18px; right: 0; position: absolute; margin-top: 5px">NO REFUND</a>
+        </div>
+        <div class="info" style="width:520px ; margin: 30px 70px; height: 55px">
+          <img src="images/icons/jetstar1.png" style="position: absolute;">
+          <div class="flightseat" style="text-align: right; top: 30px; left: 0">
+            <a style="font-family: R Bold; color: #272727; ">JS - 161</a>
+          </div>
+          <a style="font-size: 18px; font-family: R Regular; padding-left: 120px; position: absolute; margin-top: 5px">Hanoi (HAN) - HCM City (SGN)</a>
+          <a style="font-family: R Bold; font-size: 18px; right: 0; position: absolute; margin-top: 5px">NO REFUND</a>
+        </div>
+      </div>
+      <div class="chuy" style="position: absolute; top: 1030px; font-size: 15px">* Ticket prices are updated and adjusted in sync with the price on the airline system.</div>
+    </div>
+    <div class="cont payment" style="height: 500px;display: none;">
+      <div class="title">Payment</div>
+      <div class="flightinfo" style=" height: 240px">
+        <div class="info" style="margin:50px 20px ">
+          <div style="font-family: R Regular; font-size: 16px; margin-bottom: 15px">JetStar Pacific Airline (Adult) x 1</div>
+          <div style="position: absolute; right: 0; font-family: R Regular;font-size: 16px; margin:13px 0; top: -13px">$42</div>
+          <div style="font-family: R Regular; font-size: 16px; margin-bottom: 15px">Luggage fee</div>
+          <div style="position: absolute; right: 0; font-family: R Regular;font-size: 16px; margin:13px 0; top: 24px">FREE</div>
+          <div style="font-family: R Regular; font-size: 16px; margin-bottom: 15px">Utility fee</div>
+          <div style="position: absolute; right: 0; font-family: R Regular;font-size: 16px; margin:13px 0; top: 61px">-$2</div>
+        </div>
+        <div class="flightname" style="bottom: 0; position: absolute; height: 60px; background-color: #ececec">
+          <div style="margin: 20px; position: absolute; font-family: R Regular; font-size: 16px">
+            <a style="font-family: R Bold; font-size: 18px; color: #272727">Total price</a>
+          </div>
+          <div style="position: absolute; right: 0; font-family: R Bold;font-size: 24px; margin:13px 20px">$40</div>
+        </div>
+      </div>
+      <div class="chuy" style="position: absolute; top: 315px; font-size: 15px; right: 0; width: 337px; ">* Included 10% VAT and 5% service charge</div>
+      <div class="login" style="height: 240px">
+        <div class="time">
+          <ul id="timer">
+            <li class="lime" style="margin-left: 20px;font-family: R Regular">Carry out payment within</li>
+            <li class="lime" id="days"></li>
+            <li class="lime" id="hours"></li>
+            <li class="lime" id="minutes"></li>
+            <li class="lime" id="seconds"></li>
+          </ul>
+          <script>
+            function makeTimer() {
+            var endTime = new Date("29 April 2018 18:25:50 GMT+01:00");      
+            endTime = (Date.parse(endTime) / 1000);
+            var now = new Date();
+            now = (Date.parse(now) / 1000);
+            var timeLeft = endTime - now;
+            var days = Math.floor(timeLeft / 86400); 
+            var hours = Math.floor((timeLeft - (days * 86400)) / 3600);
+            var minutes = Math.floor((timeLeft - (days * 86400) - (hours * 3600 )) / 60);
+            var seconds = Math.floor((timeLeft - (days * 86400) - (hours * 3600) - (minutes * 60)));                                    
+            if (hours < "10") { hours = "0" + hours; }
+            if (minutes < "10") { minutes = "0" + minutes; }
+            if (seconds < "10") { seconds = "0" + seconds; }
+            $("#hours").html(hours + "<span>:</span>");
+            $("#minutes").html(minutes + "<span>:</span>");
+            $("#seconds").html(seconds);   
+            }
+            setInterval(function() { makeTimer(); }, 1000);
+          </script>
+        </div>
+          <div class="line" style="height: 2px; width: 620px; background-color: #ececec; margin: 0 20px "></div>
+          <div class="cards">
+          <ul>
+            <li class="checkbox checkbox-info checkbox-circle card"><input id="checkbox8" class="styled" type="checkbox" checked name="thk"><label for="checkbox8"></label><img src="images/gallery/card1.png"></li>
+            <li class="checkbox checkbox-info checkbox-circle card"><input id="checkbox8" class="styled" type="checkbox"  name="thk"><label for="checkbox8"></label><img src="images/gallery/card2.png"></li>
+            <li class="checkbox checkbox-info checkbox-circle card"><input id="checkbox8" class="styled" type="checkbox"  name="thk"><label for="checkbox8"></label><img src="images/gallery/card3.png"></li>
+            <li class="checkbox checkbox-info checkbox-circle card"><input id="checkbox8" class="styled" type="checkbox"  name="thk"><label for="checkbox8"></label><img src="images/gallery/card4.png"></li>
+            <li class="checkbox checkbox-info checkbox-circle card"><input id="checkbox8" class="styled" type="checkbox"  name="thk"><label for="checkbox8"></label><img src="images/gallery/card5.png"></li>
+          </ul>
+          <script>
+            $("input:checkbox").on('click', function() {
+              var $box = $(this);
+              if ($box.is(":checked")) {
+              var group = "input:checkbox[name='" + $box.attr("name") + "']";
+              $(group).prop("checked", false);
+                $box.prop("checked", true);
+              } else {
+                $box.prop("checked", false);
+              }
+            });
+          </script>
+      </div>
+      <div class="noti">You will be dirrected to Napas to complete the payment process. Don't worry, we will bring you back after the completion</div>
+      <div>
+        <a href="#">
+          <section class="color-2">
+            <p>
+              <button class="butt next4 sub sub-2 sub-2c" style="margin: 20px 560px" onclick="topFunction()" title="Go to top">Next plz!</button>
+            </p>
+          </section>
+        </a>
+      </div>    
+    </div>
+    </div>
+    </div>
+    <div class="cont complete" style="display: none;height: 250px">
+      <div class="title">Complete</div>
+        <div class="login" style="width: 100%; height: 60px; overflow: hidden;">
+          <div class="line1"></div>
+          <div class="logintext2" style=" margin: 21px 70px;" ><img src="images/icons/check.png" style="zoom:20%;margin: 0 -170px;"><p style="margin: -20px 10px; line-height: 1.3">RESERVATION SUCCESSFULL!!! Don't forget to take a note in your calendar. Thank you for using our service.</p></div>
+          </div>
+          <ul>
+            <li style="display: inline-block;position: absolute;">
+              <a href="#"><button class="butt recheck  sub sub-2 sub-2c" style="margin:100px 0 0 720px;transform: none">RE-CHECK</button></a>
+            </li>
+            <li style="display: inline-block;">
+              <a href="home1.html"><button class="butts  ree ree-2 ree-2c" style="margin:100px 0 0 860px;">I NEED A HOSTEL</button></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- FOOTER -->
+  <div style="width: 1366px;margin: 0 -42px;height: 436px;background-color: #272727;padding:90px 75px;border-bottom: 0.1px solid #D9D9D9;">
+    <div class="col-md-3">
+      <img src="images/logo1.png" style="zoom:50%">
+      <p style="padding-top: 10px;padding-left: 50px">
+        <li class="text-footer" >IGO Ltd.</li>
+        <li class="text-footers">NO 29 HANG BAI STREET,</li>
+        <li class="text-footers" >HOAN KIEM, HANOI</li>
+        <a href="#"><li class="text-footers linh">Email: cs@igo.com</li></a>
+        <li class="text-footers" >Hotline:<h style="color: #FED101"> 1900-2098</h></li>
+      </p>
+    </div>
+    <div class="col-md-3">
+      <p style="padding-top: 10px;">
+        <li class="text-footer" >Keep in touch</li>
+        <a href="about.html"><li class="text-footers linh" style="padding-top: 10px;">About us</li></a>
+        <a href="#"><li class="text-footers linh" style="padding-top: 10px;">Join us</li></a>
+        <a href="#"><li class="text-footers linh" style="padding-top: 10px;">Partner with us</li></a>
+        <a href="contact.html"><li class="text-footers linh" style="padding-top: 10px;">Contact us</li></a>
+      </p>
+    </div>
+    <div class="col-md-3">
+      <p style="padding-top: 10px;">
+        <li class="text-footer" >Need a helping hand?</li>
+        <a href="review.html"><li class="text-footers linh" style="padding-top: 10px;">Reviews</li></a>
+        <a href="faq.html"><li class="text-footers linh" style="padding-top: 10px;">FAQs</li></a>
+        <a href="#"><li class="text-footers linh" style="padding-top: 10px;">Privacy Policy</li></a>
+        <a href="#"><li class="text-footers linh" style="padding-top: 10px;">Terms & Conditions</li></a>
+      </p>
+    </div>
+    <div class="col-md-3">
+      <p style="padding-top: 10px;">
+        <li class="text-footer" >Stalk us on</li>
+        <a href="#"><li class="text-footers linh" style="padding-top: 10px;"><i class="fa fa-facebook" aria-hidden="true" style="padding-right: 15px"></i>Facebook</li></a>
+        <a href="#"><li class="text-footers linh" style="padding-top: 10px;"><i class="fa fa-instagram" aria-hidden="true" style="padding-right: 10px;"></i>Instagram</li></a>
+        <a href="#"><li class="text-footers linh" style="padding-top: 10px;"><i class="fa fa-youtube-play" aria-hidden="true"  style="padding-right: 10px;"></i>Youtube</li></a>
+        <a href="#"><li class="text-footers linh" style="padding-top: 10px;"><i class="fa fa-twitter" aria-hidden="true" style="padding-right: 10px;"></i>Twitter</li></a>
+      </p>
+    </div>
+    <div style="width: 1020px;height: 90px; background-color: #FED101; border: 1px solid #FED101;float: right;margin-top: 50px;padding-left: 40px; border-top-left-radius:10px;border-bottom-left-radius:10px;border-bottom-right-radius:10px;margin-right: 16px;">
+      <div class="col-md-6" style="margin-top: 20px;">
+        <p style="font-size: 24px;font-family: R Bold">Wanna get it daily?</p>
+        <p class="text-footers" style="color: #272727;margin-top: 10px;font-size: 18px;font-family: R Regular">Subcribe to receive tips & inspiring travel stories!</p>
+      </div>
+      <div class="col-md-6" style="margin-top: 20px;">
+        <input type="text" name="Email" placeholder="Email" style="font-style: inherit;font-family: R Regular; width:350px;height: 50px;margin-left: -70px;padding: 20px; font-size: 18px;">
+        <a href="review.html"><button class="sub sub-2 sub-2c" style="background-color: #272727; color: white; height: 50px;border-style: none; border-radius: 10px;width: 140px;font-size: 24px; font-family: R Bold;margin-left: 20px;">Subcribe</button></a>
+      </div>
+    </div>
+  </div>
+  <div style="height: 65px;background-color: #272727;width: 1366px;margin: 0 -42px">
+    <p style="text-align: center;color: white;padding-top: 15px;" class="text-footers">All material herein © 2017 IGO. All Rights Reserved.</p>
+  </div>
+<!-- END FOOTER -->
+<link property="" rel="stylesheet" href="js/scripts/font-awesome/css/font-awesome.min.css">
+<script async src="js/scripts/bootstrap/js/bootstrap.min.js"></script>
+<script>
+    $(function(){
+    $(".next1").click(function(){
+      $(".next1").hide();
+      $(".detail").show();
+      $(".cont").addClass("booking1");
+
+    });
+    $(".register3").click(function(){
+      $(".login1").hide();
+      $(".register2").show();
+      $(".register3").addClass("loginclick");
+      $(".login").removeClass("loginclick");
+      $(".whyy").removeClass("whylogin");
+    });
+    $(".next2").click(function(){
+      $(".booking").hide();
+      $(".review").show();
+      $(".v0").addClass("vang");
+    });
+    $(".next3").click(function(){
+      $(".review").hide();
+      $(".payment").show();
+      $(".v1").addClass("vang");
+    });
+    $(".next4").click(function(){
+      $(".payment").hide();
+      $(".complete").show();
+      $(".v2").addClass("vang");
+    });
+    $(".recheck").click(function(){
+      $(".complete").hide();
+      $(".booking").show();
+      $(".v2").removeClass("vang");
+      $(".v1").removeClass("vang");
+    });
+    });
+    function topFunction() {
+      document.body.scrollTop = 0; // For Chrome, Safari and Opera 
+      document.documentElement.scrollTop = 0; // For IE and Firefox
+    };
+</script> 
+</body>
+</html>

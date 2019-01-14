@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>IGO</title>
+    <script src="js/scripts/jquery.min.js"></script>
+    <link rel="stylesheet" href="js/scripts/bootstrap/css/pay.bootstrap.min.css">
+    <link rel="stylesheet" href="css/build.css"/>
+    <link rel="stylesheet" href="css/review1.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <style>
+      a:hover{
+        color: #272727;
+      }
+      button:focus{
+        outline: 0;
+      }
+        .text-footer{
+          color: white;
+          font-size: 18px;
+          font-family: R Bold;
+        }
+        .text-footers{
+          color: #B1B1B1;
+          font-size: 16px;
+          font-family: R Regular;
+        }
+            body{
+          background-color: white;
+          color: #272727;
+          font-feature-settings: "onum" off, "pnum" off, "lnum" on, "tnum" on;
+        -moz-font-feature-settings: "onum=0, pnum=0, lnum=1, tnum=1";       /* Firefox */
+        -webkit-font-feature-settings: "onum" off, "pnum" off, "lnum" on, "tnum" on;  /* WebKit */
+        -o-font-feature-settings: "onum" off, "pnum" off, "lnum" on, "tnum" on;       /* Opera */
+        }
+
+        .cont{
+          width: 1060px;
+          height:980px;
+          position: relative;
+          margin: 0 auto;
+          margin-bottom: 50px;
+        }
+        .lin{
+          border: 1px solid #FED101;
+          width: 55px;
+          margin-top: -7px;
+          margin-right: 35px;
+          margin-left: 5px;
+        }
+
+        .numberCircle {
+            border-radius: 50%;
+            margin-left: -100px;
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #FED101;
+            color: #FED101;
+            text-align: center;
+            font-size: 12px
+        }
+        .numberCircle1 {
+            border-radius: 50%;
+            margin-left: -110px;
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid;
+            text-align: center;
+            font-size: 12px
+        }
+        .numberCircles {
+            border-radius: 50%;
+            margin-left: -177px;
+            display: inline-block;
+            width: 36px;
+            height: 36px;
+            border: 2px solid #FED101;
+            color: #FED101;
+            text-align: center;
+            font-size: 24px
+        }
+        .numberCircles1 {
+            border-radius: 50%;
+            margin-left: -156px;
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid;
+            text-align: center;
+            font-size: 12px
+        }
+        .left{
+          border: 1px solid #ececec;border-radius: 10px;-webkit-box-shadow: 0px 5px 5px -1px #ececec;-moz-box-shadow: 0px 5px 5px 0px rgba(0,0,0,1);box-shadow: 0px 5px 5px -1px #ececec;margin: 0 auto;height: 1170px;
+        }
+
+        .payment{
+          display: none;
+        }
+        .title{
+          font-family: R Bold;
+          font-size: 24px;
+          margin: 100px 0 22px 0;
+        }
+        .login{
+          width: 660px;
+          height: 111px;
+          border-radius: 5px;
+          box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+          position: absolute;
+          background-color: white
+        }
+        .logintext1, .logintext2{
+          font-family: R Regular;
+          font-size: 16px;
+          margin-left: 20px;
+        }
+        .logintext1{
+          margin: 16px 20px;
+        }
+        .logintext2{
+          margin-left: 70px;
+        }
+        .flightinfo{
+          width: 340px;
+          height: 360px;
+          border-radius: 5px;
+          box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+          right: 0;
+          position: absolute;
+          overflow: hidden;
+          background-color: white
+        }
+        .flightname{
+          width: 340px;
+          height: 135px;
+        }
+        .detail{
+          display: none;
+        }
+        .title1{
+          font-family: R Regular;
+          font-size: 24px;
+          margin: 160px 0 15px 0;
+        }
+        table{
+          width: calc(100% - 40px);
+          height:213px;
+          margin: 30px auto 5px;
+          text-align: left;
+        }
+        th{
+          width: 50%;
+          font-weight: normal;
+          position: relative;
+        }
+        .title2{
+          font-family: R Regular;
+          font-size: 16px;
+        }
+        .input{
+          height: 40px;
+          border-radius: 3px;
+          background-color: #ececec;
+          font-family: R Regular;
+          font-size: 18px;
+          box-sizing: border-box;
+          display: inline-block;
+          border: 1px solid #ececec;
+          width: 100%;
+          padding: 10px 10px;
+          margin: 10px 0 13px ;
+        }
+        input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+      }
+       
+      input[type="number"] {
+          -moz-appearance: textfield;
+      }
+        .input:focus{
+          border-color: #fed101;
+          outline: 0;
+        }
+        .numvung{
+          border-radius: 3px;
+          background-color: #ececec;
+          font-family: R Regular;
+          font-size: 18px;
+          box-sizing: border-box;
+          display: inline-block;
+          border: 1px solid #e4e4e4;
+          width: 97%;
+          padding: 5px;
+            margin: 13px 0;
+            position: absolute;
+            height: 40px;
+            border-top-color: #bfbfbf;
+            padding-right: 10px;
+        }
+        .numvung:focus{
+          border-color: #fed101;
+          outline: 0;
+        }
+        .chuy{
+          font-family: R Regular;
+          font-size: 12px;
+          color: #575756;
+        }
+        .butt{
+          width: 121px;
+          height: 40px;
+          background-color: #fed101;
+          border:1px solid #272727;
+          font-family: R Bold;
+          font-size: 18px;
+          border-radius: 4px;
+          cursor: pointer;
+          margin-left: 540px;
+          margin-top: 670px;
+        }
+        .title3{
+          font-family: R Bold;
+          font-size: 18px;
+          margin: 20px;
+        }
+        .info{
+          width:280px ;
+          height:160px ;
+          margin: 1px 30px;
+          position: relative;
+        }
+        .flightseat{
+          position: absolute;
+          font-family: R Regular;
+          font-size: 16px;
+          color: #919191;
+          right: 0;
+          top: -5px;
+        }
+        .round{
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          background-color: #ffcb00;
+          position: absolute;
+        }
+        .line{
+          width: 2px;
+          height: 62px;
+          border-radius: 1px;
+          background-color: #919191;
+          margin: 47px 4px;
+          position: absolute;
+        }
+        .line1{
+          height: 60px;
+          width: 4px;
+          background-color:white;
+          position: absolute;
+        }
+        .cards{
+          width: 620px;
+          height: 75px;
+          margin: 0 20px;
+        }
+        .noti{
+          width: calc(100% - 40px);
+          height: 60px;
+          border-radius: 4px;
+          margin: 20px;
+          padding: 9px;
+          font-family: R Regular;
+          font-size: 16px;
+        }
+        .ava{
+          overflow: hidden;
+          border-radius: 5px;
+          width: 75px; 
+          height: 75px;
+          position: absolute;
+          left: -90px
+        }
+        .complete{
+          display: none;
+        }
+        .card{
+          display: inline-block;
+          margin: 15px 8.4px;
+        }
+        .bt{
+          margin: 15px;
+          width: 20px;
+          height: 20px;
+          border:1px solid #FED101;
+          border-radius: 50%;
+          background-color: white;
+        }
+        .bt:hover{
+          background-color: #FED101;
+        }
+        .bt:active{
+          background-color: #FED101;
+        }
+        .btactive{
+          background-color: #FED101;
+        }
+        .time{
+          margin: 20px auto;
+          font-family: R Regular
+        }
+        .lime{
+          display: inline-block;
+          font-size: 18px;
+          color: #1C94E0;
+        }
+        .v1, .v2{
+          cursor: pointer;
+        }
+        .vang{
+          color: #FED101;
+          cursor: pointer;
+        }
+        .vang:hover{
+          color: #fed101;
+        }
+        .linh:hover{
+          color: white;
+        }
+      .sub {
+            text-transform: none;
+             color: white;
+             cursor: pointer;
+             letter-spacing: 1px;
+             position: relative;
+             -webkit-transition: all 0.3s;
+             -moz-transition: all 0.3s;
+             transition: all 0.3s;
+           }
+           .sub-2 {
+             background: #272727;
+             box-shadow: 0 6px black;
+             -webkit-transition: none;
+             -moz-transition: none;
+             transition: none;
+           }
+           .sub-2c {
+               border-radius: 10px;
+           }
+           .sub-2c:hover {
+             box-shadow: 0 4px black;
+             top: 2px;
+           }
+
+           .sub-2c:active {
+             box-shadow: 0 0 #272727;
+             top: 6px;
+           }  
+        .checkbox label::after {
+          display: inline-block;
+          position: absolute;
+          width: 16px;
+          height: 16px;
+          left: 0;
+          top: 0;
+          margin-left: -20px;
+          padding-left: 1px;
+          padding-top: 0px;
+          font-size: 18px;
+          color: #555555;
+      }
+      .checkbox label::before {
+          content: "";
+          display: inline-block;
+          position: absolute;
+          width: 25px;
+          height: 25px;
+          left: -3px;
+          margin-left: -20px;
+          border: 1px solid #676767;
+          border-radius: 3px;
+          background-color: #fff;
+          -webkit-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+          -o-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+          transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+      }
+      .checkbox input[type=checkbox], .checkbox-inline input[type=checkbox], .radio input[type=radio], .radio-inline input[type=radio] {
+          position: absolute;
+          margin-top: 25px;
+          margin-left: -20px;
+          width: 20px;
+          height: 20px;
+      }
+      .ree {
+            width: 200px;
+            border:none;
+            text-transform: none;
+             color: white;
+             cursor: pointer;
+             letter-spacing: 1px;
+             position: relative;
+             -webkit-transition: all 0.3s;
+             -moz-transition: all 0.3s;
+             transition: all 0.3s;
+           }
+           .ree-2 {
+             background: #FED101;
+             box-shadow: 0 6px #FCAF03;
+             -webkit-transition: none;
+             -moz-transition: none;
+             transition: none;
+           }
+           .ree-2c {
+               border-radius: 10px;
+           }
+           .ree-2c:hover {
+             box-shadow: 0 4px #FCAF03;
+             top: 2px;
+           }
+
+           .ree-2c:active {
+             box-shadow: 0 0 #FCAF03;
+             top: 6px;
+           } 
+    </style>
+</head>
+<body>
+<!-- HEADER -->
+  <header class="fixed-top scroll-change" data-menu-anima="fade-bottom">
+    <div class="navbar navbar-default icon-menu navbar-fixed-top" role="navigation">
+      <div class="navbar navbar-main">
+        <div class="container" style="height: 100px;">
+          <div class="navbar-header">
+
+            <button type="button" class="navbar-toggle">
+              <i class="fa fa-bars"></i>
+            </button>
+            <a  href="home.html"><img  style="zoom:80%;margin: 25px auto;" src="images/logo.png" alt="logo"></a>
+          </div>
+
+          <div  style="margin-right: 90px;margin-top: 35px;">
+            <ul style="font-family: R Bold;margin-top: 25px;margin-left: 460px;font-size: 18px;width: 100%">
+              <li style="display: inline-block;"><a href="payment.html"><span style="font-size: 18px;color: #FED101">Booking</span></a><div class="numberCircle">1</div></li>
+              <li style="display: inline-block;"><div class="lin"></div></li>
+              <li style="display: inline-block;"><h style="word-spacing: 3px;cursor: pointer;"><span style="font-size: 18px;margin-left: 7px;color: #FED101">Review </span><div class="numberCircle">2</div></li></h>
+              <li style="display: inline-block;margin-right: -10px"><div class="lin"></div></li>
+              <li style="display: inline-block;"><h class="v1" style="word-spacing: 3px;"><span style="font-size: 18px;margin-left: 7px;">Payment </span><div class="numberCircle1">3</div></li></h>
+              <li style="display: inline-block;"><div class="lin"></div></li>
+              <li style="display: inline-block;margin-left: -5px;"><h class="v2"><span style="font-size: 18px;">Complete</span><div class="numberCircle1">4</div></li></h>
+            </ul>
+          </div>
+
+            <div class="nav navbar-nav navbar-right">
+              <ul class="nav navbar-nav lan-menu">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"><img src="images/icons/en.png" alt="flag" />EN <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#" style="color: #272727;"><img src="images/icons/vi.png" alt="flag" />VN</a></li>
+                </ul>
+                </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+<!-- END HEADER -->
+
+<!-- CONTAINER -->
+  <div id="page-container">
+    <div style="width: 100%; height: 1%; "></div>
+    <div class="cont booking">
+      <div class="title">Booking</div>
+      <div class="login">
+        <div class="logintext1">
+          <a href="login.html" style="font-family: R Bold; color: #fed101; text-decoration: none">Log in</a> or <a href="login.html" style="font-family: R Bold; color: #fed101; text-decoration: none;">Register</a> to enjoy our benefits.
+        </div>
+        <img src="images/icons/traveler.png" style="zoom:30%; position: absolute; margin-left:80px; margin-top: 15px">
+        <div class="logintext2">
+          <a style="font-family: R Bold; color: #272727">Travelers Picker</a></br>Book faster and easier by using your saved contact and passengers info.</div>
+      </div>
+      <div class="flightinfo" style="height: 325px">
+        
+        <div class="flightname">
+          
+          <div style="margin: 30px; position: absolute; font-family: R Regular; font-size: 16px; right: 0; width:190px;color: #575756">
+            <div class="ava"><img src="images\gallery\hostels21.jpg" style="width: 100%; height: 100%"></div>
+            <a style="font-family: R Bold; font-size: 18px; color: #272727">Lavie En Rose Hostel</a></br>03 Tran Quoc Toan Street, Da Nang, Vietnam
+          </div>
+        </div>
+        <div class="info">
+          <div class="line1" style="background-color: #919191; width: 2px; height: 30px; top: 15px; margin-left: 4px "></div>
+          <div class="flightseat" style="left: 0;">
+            
+           <div class="round" style="margin-top: 5px"></div>
+            <a style="color: #272727; position: absolute; margin-left: 25px">Wed, Sep 27</a>
+            <a style="color: #272727; right: 0; position: absolute; ">After 14:00</a>
+          </div>
+          <div class="flightseat" style="left: 0px; margin-top: 50px">
+            <div class="round" style="margin-top: 5px"></div>
+            <a style="color: #272727; position: absolute; margin-left: 25px">Fri, Sep 29</a>
+            <a style="color: #272727; right: 0; position: absolute;">Before 21:00</a>
+          </div>
+          <div class="flightseat" style="left: 0px; margin-top: 85px">
+            <a style="color: #272727">Number of nights</a>
+            <a style="color: #272727; right: 0; position: absolute;">02 night(s)</a>
+          </div>
+          <div class="flightseat" style="margin-top: 120px; left: 0">
+            <a style="font-family: R Bold ;color: #272727">1 x Mixed 4-beds dorm</a>
+          </div>
+          <div class="flightseat" style="margin-top: 150px; left: 0">
+            <a style="color: #272727">Meals included</a>
+          </div>
+        </div>
+      </div>
+      <div class="title1">Contact information</div>
+      <div class="login" style="height: 640px">
+        <table>
+          <tr>
+            <th style="padding-right: 10px">
+              <div class="title2">Middle & First Name</div>
+              <form><input class="input" type="text" name=""></form>
+              <div class="chuy">as on ID card (without title or punctuation)</div>
+            </th>
+            <th style="padding-left: 10px">
+              <div class="title2">Last Name</div>
+              <form><input class="input" type="text" name=""></form>
+              <div class="chuy">as on ID card (without title or punctuation)</div>
+            </th>
+          </tr>
+          <tr>
+            <th style="padding-top: 30px; padding-right: 10px; position: relative;">
+              <div class="title2">Contact’s mobile phone number</div>
+              <form>
+                <select name="mavung" class="numvung" style="margin-top: 12px; width: 30%">
+                  <option><img src="images/icons/en.png" alt="flag" />+15</option>
+                  <option><img src="images/icons/en.png" alt="flag" />+37</option>
+                  <option selected><img src="images/icons/en.png" alt="flag" />+84</option>
+                  <option><img src="images/icons/en.png" alt="flag" />+08</option>
+                </select>
+              </form>
+              <form><input class="input" type="number" name="" style="width: 63%; right: 10px; position: absolute;margin-top: 12px"></form>
+              <div class="chuy" style="padding-top: 65px">e.g. +62812345678, for Country Code (+62) and Mobile No. 0812345678</div>
+            </th>
+            <th style="padding-top: 16px; padding-left: 10px">
+              <div class="title2">Contact’s email address</div>
+              <form><input class="input" type="email" name=""></form>
+              <div class="chuy">e.g. email@example.com</div>
+            </th>
+          </tr>
+        </table>
+        <div class="title2" style="margin: 30px 20px 15px">Additional request</div>
+        <form><input class="input" type="text" name="" style="margin: 20px; height: 250px; margin: 0 20px; width: calc(100% - 40px)"></form>
+        
+      </div>
+      <a href="#">
+        <section class="color-2">
+          <p>
+            <button class="butt next1 sub sub-2 sub-2c" onclick="topFunction()" title="Go to top">Next plz!</button>
+           </p>
+        </section>
+      </a>
+    </div>
+    <div class="cont payment" style="height: 500px">
+      <div class="title">Payment</div>
+      <div class="flightinfo" style=" height: 300px">
+        <div class="flightname">
+          <div style="margin: 30px; position: absolute; font-family: R Regular; font-size: 16px; right: 0; width:190px;color: #575756">
+            <div class="ava"><img src="images\gallery\hostels21.jpg" style="width: 100%; height: 100%"></div>
+            <a style="font-family: R Bold; font-size: 18px; color: #272727">Lavie En Rose Hostel</a></br>03 Tran Quoc Toan Street, Da Nang, Vietnam
+          </div>
+        </div>
+        <div class="info">
+          <div class="flightseat" style="left: 0;">
+            <a style="color: #272727;">Subtotal</a>
+            <a style="color: #272727; right: 0; position: absolute;">$ 19</a>
+          </div>
+          <div class="flightseat" style="left: 0px; margin-top: 35px">
+            <a style="color: #272727">IGO booking fee</a>
+            <a style="color: #272727; right: 0; position: absolute;">FREE</a>
+          </div>
+        </div>
+        <div class="flightname" style="bottom: 0; position: absolute; height: 60px; background-color: #ececec">
+          <div style="margin: 20px; position: absolute; font-family: R Regular; font-size: 16px">
+            <a style="font-family: R Bold; font-size: 18px; color: #272727">Total price</a>
+          </div>
+            <div style="position: absolute; right: 0; font-family: R Bold;font-size: 24px; margin:13px 20px">$19</div>
+        </div>
+      </div>
+      <div class="chuy" style="position: absolute; top: 365px; font-size: 15px; right: 0; width: 337px; ">* Included 10% VAT and 5% service charge</div>
+      <div class="login" style="height: 240px">
+        <div class="time">
+                <ul id="timer">
+                  <li class="lime" style="margin-left: 20px;font-family: R Regular">Carry out payment within</li>
+                  <li class="lime" id="days"></li>
+                  <li class="lime" id="hours"></li>
+                  <li class="lime" id="minutes"></li>
+                  <li class="lime" id="seconds"></li>
+                </ul>
+                <script>
+                  function makeTimer() {
+
+                    var endTime = new Date("29 April 2018 18:25:50 GMT+01:00");      
+                      endTime = (Date.parse(endTime) / 1000);
+
+                      var now = new Date();
+                      now = (Date.parse(now) / 1000);
+
+                      var timeLeft = endTime - now;
+
+                      var days = Math.floor(timeLeft / 86400); 
+                      var hours = Math.floor((timeLeft - (days * 86400)) / 3600);
+                      var minutes = Math.floor((timeLeft - (days * 86400) - (hours * 3600 )) / 60);
+                      var seconds = Math.floor((timeLeft - (days * 86400) - (hours * 3600) - (minutes * 60)));
+                              
+                      if (hours < "10") { hours = "0" + hours; }
+                      if (minutes < "10") { minutes = "0" + minutes; }
+                      if (seconds < "10") { seconds = "0" + seconds; }
+
+                      $("#hours").html(hours + "<span>:</span>");
+                      $("#minutes").html(minutes + "<span>:</span>");
+                      $("#seconds").html(seconds);   
+
+                  }
+
+                    setInterval(function() { makeTimer(); }, 1000);
+                </script>
+              </div>
+        <div class="line" style="height: 2px; width: 620px; background-color: #ececec; margin: 0 20px "></div>
+        <div class="cards">
+          <ul>
+            <li class="checkbox checkbox-info checkbox-circle card"><input id="checkbox8" class="styled" type="checkbox" checked name="thk"><label for="checkbox8"></label><img src="images/gallery/card1.png"></li>
+            <li class="checkbox checkbox-info checkbox-circle card"><input id="checkbox8" class="styled" type="checkbox"  name="thk"><label for="checkbox8"></label><img src="images/gallery/card2.png"></li>
+            <li class="checkbox checkbox-info checkbox-circle card"><input id="checkbox8" class="styled" type="checkbox"  name="thk"><label for="checkbox8"></label><img src="images/gallery/card3.png"></li>
+            <li class="checkbox checkbox-info checkbox-circle card"><input id="checkbox8" class="styled" type="checkbox"  name="thk"><label for="checkbox8"></label><img src="images/gallery/card4.png"></li>
+            <li class="checkbox checkbox-info checkbox-circle card"><input id="checkbox8" class="styled" type="checkbox"  name="thk"><label for="checkbox8"></label><img src="images/gallery/card5.png"></li>
+          </ul>
+          <script>
+            $("input:checkbox").on('click', function() {
+              var $box = $(this);
+              if ($box.is(":checked")) {
+                var group = "input:checkbox[name='" + $box.attr("name") + "']";
+                $(group).prop("checked", false);
+                $box.prop("checked", true);
+              } else {
+                $box.prop("checked", false);
+              }
+            });
+          </script>
+        </div>
+        <div class="noti">You will be dirrected to Napas to complete the payment process. Don't worry, we will bring you back after the completion</div>
+        <div>
+        <a href="#"><button class="butt next2 sub sub-2 sub-2c" style="margin-top: 40px" onclick="topFunction()" title="Go to top">Next plz !</button></div></a>
+      </div>  
+    </div>
+    <div class="cont complete">
+      <div class="title">Complete</div>
+      <div class="login" style="width: 100%; height: 60px; overflow: hidden;">
+        <div class="line1"></div>
+        <div class="logintext2" style=" margin: 20px 80px;" ><img src="images/icons/check.png" style="zoom:20%;margin: 0 -170px;"><p style="margin: -20px 10px; line-height: 1.3">RESERVATION SUCCESSFULL!!! Don't forget to take a note in your calendar. Thank you for using our service.</p></div>
+      </div>
+      <div class="login" style="width: 100%; height: 590px; top: 150px; padding: 30px">
+        <div class="flightname" style="height: 80px">
+          <div style=" position: absolute; font-family: R Regular; font-size: 16px; width:100%;color: #575756">
+            <img src="images/icons/star.png" style="position: absolute;zoom:15%;top:40px;left: 2050px ">
+            <img src="images/icons/star.png" style="position: absolute;zoom:15%;top:40px;left: 1860px ">
+            <img src="images/icons/star.png" style="position: absolute;zoom:15%;top:40px;left: 1670px ">
+            <a style="font-family: R Bold; font-size: 24px; color: #272727">Lavie En Rose Hostel</a></br>03 Tran Quoc Toan Street, Da Nang, Vietnam
+          </div>
+        </div>
+        <img src="images/gallery/hostels5.jpg" style="zoom:70%;">
+        <div class="info"  style="position: absolute;right: 0; width: 298px; top: 110px">
+          <div class="flightseat" style="left: 0">
+            <a style="font-family: R Bold; font-size: 16px; color: #272727">TRAVELER'S DETAILS</a>
+          </div>
+          <div class="flightseat" style="left: 0; margin-top: 35px">
+              <a style=" color: #272727;">Name</a>
+              <a style="font-family: R Bold; color: #272727; right: 0; position: absolute;">Loi Tran Quoc</a>
+            </div>
+            <div class="flightseat" style="left: 0px; margin-top: 65px">
+              <a style="color: #272727">Booking date</a>
+              <a style="font-family: R Bold ;color: #272727; right: 0; position: absolute;">Fri, Sept 22, 2017</a>
+            </div>
+            <div class="flightseat" style="left: 0px; margin-top: 95px">
+              <a style="color: #272727">Contact</a>
+              <a style="font-family: R Bold ;color: #272727; right: 0; position: absolute;">+84 165 456 7890</a>
+            </div>
+            <div class="flightseat" style="left: 0px; margin-top: 125px">
+              <a style="color: #272727">Email</a>
+              <a style="font-family: R Bold ;color: #272727; right: 0; position: absolute;">loitran@gmail.com</a>
+            </div>
+        </div>
+        <div class="info"  style="position: absolute;right: 0; width: 298px; top: 300px">
+          <div class="flightseat" style="left: 0">
+            <a style="font-family: R Bold; font-size: 16px; color: #272727">BOOKING DETAILS</a>
+          </div>
+          <div class="flightseat" style="left: 0; margin-top: 35px">
+              <a style="color: #272727;">Room type</a>
+              <a style="font-family: R Bold; color: #272727; right: 0; position: absolute;">1 x Mixed 4-beds dorm</a>
+            </div>
+            <div class="flightseat" style="left: 0px; margin-top: 65px">
+              <a style="color: #272727">Included</a>
+              <a style="font-family: R Bold ;color: #272727; right: 0; position: absolute;">Breakfast</a>
+            </div>
+            <div class="flightseat" style="left: 0px; margin-top: 95px">
+              <div class="round" style="margin-top: 5px"></div>
+              <a style="color: #272727; position: absolute; left: 20px">Sept 27</a>
+              <a style="font-family: R Bold ;color: #272727; right: 0; position: absolute;">After 14:00</a>
+            </div>
+            <div class="flightseat" style="left: 0px; margin-top: 147px">
+              <div class="round" style="margin-top: 5px"></div>
+              <a style="color: #272727; position: absolute; left: 20px">Sept 29</a>
+              <a style="font-family: R Bold ;color: #272727; right: 0; position: absolute;">Before 21:00</a>
+            </div>
+            <div class="line1" style="background-color: #919191; height: 30px; width: 2px;top: 111px; left: 4px"></div>
+            <a href="#">
+            <section class="color-2">
+            <p>
+              <button class="butt next3 sub sub-2 sub-2c"  style="margin: 200px 0" onclick="topFunction()" title="Go to top">Re-check</button>
+             </p>
+          </section>
+        </a>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+<!-- END CONTAINER -->
+<!-- FOOTER -->
+  <div style="width: 1366px;margin: 0 -42px;height: 436px;background-color: #272727;padding:90px 75px;border-bottom: 0.1px solid #D9D9D9;">
+    <div class="col-md-3">
+      <img src="images/logo1.png" style="zoom:50%">
+      <p style="padding-top: 10px;padding-left: 50px">
+        <li class="text-footer" >IGO Ltd.</li>
+        <li class="text-footers">NO 29 HANG BAI STREET,</li>
+        <li class="text-footers" >HOAN KIEM, HANOI</li>
+        <a href="#"><li class="text-footers linh">Email: cs@igo.com</li></a>
+        <li class="text-footers" >Hotline:<h style="color: #FED101"> 1900-2098</h></li>
+      </p>
+    </div>
+    <div class="col-md-3">
+      <p style="padding-top: 10px;">
+        <li class="text-footer" >Keep in touch</li>
+        <a href="about.html"><li class="text-footers linh" style="padding-top: 10px;">About us</li></a>
+        <a href="#"><li class="text-footers linh" style="padding-top: 10px;">Join us</li></a>
+        <a href="#"><li class="text-footers linh" style="padding-top: 10px;">Partner with us</li></a>
+        <a href="contact.html"><li class="text-footers linh" style="padding-top: 10px;">Contact us</li></a>
+      </p>
+    </div>
+    <div class="col-md-3">
+      <p style="padding-top: 10px;">
+        <li class="text-footer" >Need a helping hand?</li>
+        <a href="review.html"><li class="text-footers linh" style="padding-top: 10px;">Reviews</li></a>
+        <a href="faq.html"><li class="text-footers linh" style="padding-top: 10px;">FAQs</li></a>
+        <a href="#"><li class="text-footers linh" style="padding-top: 10px;">Privacy Policy</li></a>
+        <a href="#"><li class="text-footers linh" style="padding-top: 10px;">Terms & Conditions</li></a>
+      </p>
+    </div>
+    <div class="col-md-3">
+      <p style="padding-top: 10px;">
+        <li class="text-footer" >Stalk us on</li>
+        <a href="#"><li class="text-footers linh" style="padding-top: 10px;"><i class="fa fa-facebook" aria-hidden="true" style="padding-right: 15px"></i>Facebook</li></a>
+        <a href="#"><li class="text-footers linh" style="padding-top: 10px;"><i class="fa fa-instagram" aria-hidden="true" style="padding-right: 10px;"></i>Instagram</li></a>
+        <a href="#"><li class="text-footers linh" style="padding-top: 10px;"><i class="fa fa-youtube-play" aria-hidden="true"  style="padding-right: 10px;"></i>Youtube</li></a>
+        <a href="#"><li class="text-footers linh" style="padding-top: 10px;"><i class="fa fa-twitter" aria-hidden="true" style="padding-right: 10px;"></i>Twitter</li></a>
+      </p>
+    </div>
+    <div style="width: 1020px;height: 90px; background-color: #FED101; border: 1px solid #FED101;float: right;margin-top: 50px;padding-left: 40px; border-top-left-radius:10px;border-bottom-left-radius:10px;border-bottom-right-radius:10px;margin-right: 16px;">
+      <div class="col-md-6" style="margin-top: 20px;">
+        <p style="font-size: 24px;font-family: R Bold">Wanna get it daily?</p>
+        <p class="text-footers" style="color: #272727;margin-top: 10px;font-size: 18px;font-family: R Regular">Subcribe to receive tips & inspiring travel stories!</p>
+      </div>
+      <div class="col-md-6" style="margin-top: 20px;">
+        <input type="text" name="Email" placeholder="Email" style="font-style: inherit;font-family: R Regular; width:350px;height: 50px;margin-left: -70px;padding: 20px; font-size: 18px;">
+        <a href="#"><button class="sub sub-2 sub-2c" style="background-color: #272727; color: white; height: 50px;border-style: none; border-radius: 10px;width: 140px;font-size: 24px; font-family: R Bold;margin-left: 20px;">Subcribe</button></a>
+      </div>
+    </div>
+  </div>
+  <div style="height: 65px;background-color: #272727;width: 1366px;margin: 0 -42px">
+    <p style="text-align: center;color: white;padding-top: 15px;" class="text-footers">All material herein © 2017 IGO. All Rights Reserved.</p>
+  </div>
+<!-- END FOOTER -->
+<link property="" rel="stylesheet" href="js/scripts/font-awesome/css/font-awesome.min.css">
+<script async src="js/scripts/bootstrap/js/bootstrap.min.js"></script>
+<script>
+  $(function(){
+  $(".next1").click(function(){
+    $(".booking").hide();
+    $(".payment").show();
+    $(".cont").addClass("booking1");
+    $(".v1").addClass("vang")
+
+  });
+  $(".register3").click(function(){
+    $(".login1").hide();
+    $(".register2").show();
+    $(".register3").addClass("loginclick");
+    $(".login").removeClass("loginclick");
+    $(".whyy").removeClass("whylogin");
+  });
+  $(".next2").click(function(){
+    $(".payment").hide();
+    $(".complete").show();
+    $(".v2").addClass("vang");
+  });
+  $(".next3").click(function(){
+    $(".complete").hide();
+    $(".booking").show();
+    $(".v2").removeClass("vang");
+    $(".v1").removeClass("vang");
+  });
+  $('.bt').click(function() {
+      $(this).toggleClass('btactive');
+  });
+  });
+  function topFunction() {
+    document.body.scrollTop = 0; // For Chrome, Safari and Opera 
+    document.documentElement.scrollTop = 0; // For IE and Firefox
+  };
+</script> 
+</body>
+</html>

@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>IGO</title>
+    <script src="js/scripts/jquery.min.js"></script>
+    <link rel="stylesheet" href="js/scripts/bootstrap/css/contact.bootstrap.min.css">
+    <link rel="stylesheet" href="js/scripts/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/contact1.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <script src="js/scripts/script.js"></script>
+    <style>
+    button:focus{
+      outline: none;
+    }
+    input:focus{
+      outline: none;
+    }
+      .linh:hover{
+        color: white;
+      }
+    .navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover{
+      color: #FED101;
+    }
+    #page-container {
+      margin: 0 auto;
+      height: 800px;
+      width: 1060px;
+      padding: 0;
+      color: #272727;
+    }
+    .text {
+      text-decoration: underline;
+      color: white;
+      font-size: 24px;
+      padding: 16px 32px;
+      font-family: R Bold;
+      width: 320px;
+      text-align: center;
+    }
+    .text-footer{
+      color: white;
+      font-size: 18px;
+      font-family: R Bold;
+    }
+    .text-footers{
+      color: #B1B1B1;
+      font-size: 16px;
+      font-family: R Regular;
+    }
+
+    .wrapper {
+      margin: 40px auto;
+      width: 950px;
+      display: block;
+      text-align: center;
+      -webkit-transition: 0.15s ease;
+      transition: 0.15s ease;
+    }
+    .wrapper.active .arrow {
+      -webkit-transform: rotate(45deg) translate(-5px, -5px);
+              transform: rotate(45deg) translate(-5px, -5px);
+    }
+    .wrapper.active .arrow:before {
+      -webkit-transform: translate(10px, 0);
+              transform: translate(10px, 0);
+    }
+    .wrapper.active .arrow:after {
+      -webkit-transform: rotate(90deg) translate(10px, 0);
+              transform: rotate(90deg) translate(10px, 0);
+    }
+    .wrapper.active .ul {
+      opacity: 1;
+      height: 158px;
+    }
+
+    .wrapper2 .ul {
+      border: 1px solid rgba(0, 0, 0, 0.5);
+    }
+    .wrapper2 .li:first-child {
+      margin-top: 16px;
+    }
+    .wrapper2 .li:last-child {
+      margin-bottom: 3px;
+    }
+    .wrapper2.active ul {
+      margin-top: 12px;
+    }
+    .wrapper2.active .arrow {
+      -webkit-transform: rotate(45deg) translate(38px, 38px);
+              transform: rotate(45deg) translate(38px, 38px);
+      opacity: 0.6;
+    }
+    .wrapper2.active .arrow:before {
+      -webkit-transform: translate(5px, 0);
+              transform: translate(5px, 0);
+    }
+    .wrapper2.active .arrow:after {
+      -webkit-transform: rotate(90deg) translate(5px, 0);
+              transform: rotate(90deg) translate(5px, 0);
+    }
+
+    .wrapper3 .arrow {
+      -webkit-transform: rotate(0);
+              transform: rotate(0);
+      left: 0;
+    }
+    .wrapper3 .arrow:before, .wrapper3 .arrow:after {
+      background-color: transparent;
+      width: 3px;
+      height: 10px;
+      display: inline-block;
+      position: absolute;
+      border-bottom: 12px solid white;
+      top: 0;
+      left: 0;
+      -webkit-transform: rotate(0);
+              transform: rotate(0);
+    }
+    .wrapper3 .arrow:before {
+      -webkit-transform: rotate(-135deg);
+              transform: rotate(-135deg);
+    }
+    .wrapper3 .arrow:after {
+      -webkit-transform: rotate(135deg);
+              transform: rotate(135deg);
+    }
+    .wrapper3.active .arrow {
+      -webkit-transform: rotate(0);
+              transform: rotate(0);
+      -webkit-transform: translate(0, -6px);
+              transform: translate(0, -6px);
+    }
+    .wrapper3.active .arrow:before {
+      -webkit-transform: rotate(-45deg);
+              transform: rotate(-45deg);
+    }
+    .wrapper3.active .arrow:after {
+      -webkit-transform: rotate(45deg);
+              transform: rotate(45deg);
+    }
+
+    .arrow {
+      width: 13px;
+      height: 13px;
+      display: inline-block;
+      position: relative;
+      bottom: -5px;
+      left: -10px;
+      -webkit-transition: 0.4s ease;
+      transition: 0.4s ease;
+      margin-top: 2px;
+      text-align: left;
+      -webkit-transform: rotate(45deg);
+              transform: rotate(45deg);
+      float: right;
+    }
+    .arrow:before, .arrow:after {
+      position: absolute;
+      content: "";
+      display: inline-block;
+      width: 12px;
+      height: 3px;
+      background-color: #000;
+      -webkit-transition: 0.4s ease;
+      transition: 0.4s ease;
+    }
+    .arrow:after {
+      position: absolute;
+      -webkit-transform: rotate(90deg);
+              transform: rotate(90deg);
+      top: -5px;
+      left: 5px;
+    }
+
+    .click-text {
+      font-family: R Bold;
+      font-size: 16px;
+      display: block;
+      text-align: left;
+      padding: 0 12px 16px;
+      margin: 0;
+      cursor: pointer;
+      color: #272727;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+      -webkit-transition: 0.15s ease;
+      transition: 0.15s ease;
+    }
+
+    .ul {
+      padding: 0;
+      margin: 0;
+      height: 0;
+      overflow: hidden;
+      opacity: 0;
+      -webkit-transition: 0.4s ease;
+      transition: 0.4s ease;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+    }
+
+    .li {
+      font-family: R Regular;
+      font-size: 16px;
+      color: #272727;
+      list-style-type: none;
+      margin: 0 auto;
+      padding: 4px 12px;
+      text-align: left;
+      cursor: pointer;
+    }
+    .li:first-child {
+      margin-top: 12px;
+    }
+    .li:last-child {
+      margin-bottom: 12px;
+    }
+
+    .tab {
+      padding-top: 50px;
+      margin-bottom: 20px;
+      position: relative;
+      overflow: hidden;
+      background: #fff;
+      width: 100%;
+      margin: 0 auto;
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.5;
+      font-weight: 300;
+      color: #888;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .tabs {
+      display: table;
+      position: relative;
+      overflow: hidden;
+      margin: 0;
+      width: 100%;
+    }
+    .tabs .tli {
+      text-align: center;
+      float: left;
+      line-height: 100px;
+      overflow: hidden;
+      padding: 0;
+      position: relative;
+      width: 353px;
+      height: 100px;
+      margin-bottom: -10px;
+      border: 1px solid #e4e4e4;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+    .tabs a {
+      font-family: R Regular;
+      font-size: 18px;
+      background-color: #575756;
+      border-bottom: 1px solid #fff;
+      color: white;
+      font-weight: 500;
+      display: block;
+      letter-spacing: 0;
+      outline: none;
+      padding: 0 20px;
+      text-decoration: none;
+      -webkit-transition: all 0.2s ease-in-out;
+      -moz-transition: all 0.2s ease-in-out;
+      transition: all 0.2s ease-in-out;
+
+    }
+
+    .tab_content{
+      border: 1px solid #f4f4f4;
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+    }
+    .tabs_item {
+      display: none;
+    }
+    .tabs_item:first-child {
+      display: block;
+    }
+
+    .current a {
+      font-family: R Bold;
+      font-size: 18px;
+      color: #FED101;
+      background: #272727;
+    }
+    .title{
+      margin: 85px auto;
+      width: 1060px;
+      font-family: R Bold;
+      font-size: 36px;
+      text-align: center;
+    }
+    .sub {
+            text-transform: none;
+             color: white;
+             cursor: pointer;
+             letter-spacing: 1px;
+             position: relative;
+             -webkit-transition: all 0.3s;
+             -moz-transition: all 0.3s;
+             transition: all 0.3s;
+           }
+           .sub-2 {
+             background: #272727;
+             box-shadow: 0 6px black;
+             -webkit-transition: none;
+             -moz-transition: none;
+             transition: none;
+           }
+           .sub-2c {
+               border-radius: 10px;
+           }
+           .sub-2c:hover {
+             box-shadow: 0 4px black;
+             top: 2px;
+           }
+
+           .sub-2c:active {
+             box-shadow: 0 0 #272727;
+             top: 6px;
+           } 
+    </style>
+</head>
+<body>
+<!-- HEADER -->
+  <header class="fixed-top scroll-change" data-menu-anima="fade-bottom">
+    <div class="navbar navbar-default icon-menu navbar-fixed-top" role="navigation">
+      <div class="navbar-mini scroll-hide">
+        <div class="container">
+          <div class="nav navbar-nav navbar-right">
+            <ul class="nav navbar-nav lan-menu">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"><img src="images/icons/en.png" alt="flag" />EN <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#" style="color: black;"><img src="images/icons/vi.png" alt="flag" />VN</a></li>
+                </ul>
+                </li>
+            </ul>
+            <form class="navbar-form" role="search">
+              <div  class="input-group">
+                <input style="font-weight: lighter;" type="text" class="form-control" placeholder="Search for...">
+                <span class="input-group-btn">
+                  <a class="btn btn-default" style="font-family: R Bold;font-size: 14px;height: 40px;padding-top:12px" href="login.html">LOGIN/REGISTER</a>
+                </span>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="navbar navbar-main">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle">
+              <i class="fa fa-bars"></i>
+            </button>
+            <a class="navbar-brand" href="home.html"><img  style="zoom:80%" src="images/logo.png" alt="logo"></a>
+          </div>
+          <div class="collapse navbar-collapse" style="margin-right: 90px;">
+            <ul class="nav navbar-nav" style="font-family: R Bold;float: right;">
+              <li><a href="home1.html"><i class="onlycover" style="background-image:url(images/icons/icon-2.png)"></i><span style="font-size: 18px;">Hostels</span></a></li>
+              <li><a href="home.html"><i class="onlycover" style="background-image:url(images/icons/icon-6.png)"></i><span style="font-size: 18px;">Flights</span></a></li>
+              <li><a href="tip4trip.html"><i class="onlycover" style="background-image:url(images/icons/icon-1.png)"></i><span style="font-size: 18px;">Tips for Trips </span></a></li>
+              <li><a href="contact.html"><i class="onlycover" style="background-image:url(images/icons/icon-4.png)"></i><span style="font-size: 18px;">Contacts</span></a></li>
+            </ul>
+            <div class="nav navbar-nav navbar-right">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+<!-- END HEADER -->
+
+<!-- CONTAINER -->
+  <div id="page-container">
+     <div class="title">
+       <p>Wanna ask us something?</p>
+     </div>
+
+     <div class="fab">
+       <div class="tab">
+
+        <ul class="tabs">
+          <li class="tli"><a href="#">BOOKING</a></li>
+          <li class="tli"><a href="#">SEARCHING</a></li>
+          <li class="tli"><a href="#">PRICE</a></li>
+        </ul> <!-- / tabs -->
+
+        <div class="tab_content">
+
+          <div class="tabs_item">
+            <div class="wrapper wrapper1"  id="wrapper">
+                      <p class="click-text">
+                        What's included in the price shown? <span class="arrow"></span>
+                      </p>
+                      <ul class="ul">
+                        <li class="li">The prices you see on Cheapflights should include all mandatory fees. However, you'll need to check non-mandatory fees such as seat selection, baggage and meals before you book your flight with your chosen airline or travel agent. These fees normally show up as you go through the process of booking and paying for your flight. Please note, all fares are subject to availability.</li>
+                        
+                      </ul>  
+            </div>
+            <div class="wrapper wrapper1"  id="wrapper1">
+              <p class="click-text">
+                  What's included in the price shown? <span class="arrow"></span>
+                </p>
+                <ul class="ul">
+                  <li class="li">The prices you see on Cheapflights should include all mandatory fees. However, you'll need to check non-mandatory fees such as seat selection, baggage and meals before you book your flight with your chosen airline or travel agent. These fees normally show up as you go through the process of booking and paying for your flight. Please note, all fares are subject to availability.</li>
+                </ul>  
+            </div>
+            <div class="wrapper wrapper1"  id="wrapper2">
+              <p class="click-text">
+                What's included in the price shown? <span class="arrow"></span>
+              </p>
+              <ul class="ul">
+                <li class="li">The prices you see on Cheapflights should include all mandatory fees. However, you'll need to check non-mandatory fees such as seat selection, baggage and meals before you book your flight with your chosen airline or travel agent. These fees normally show up as you go through the process of booking and paying for your flight. Please note, all fares are subject to availability.</li>
+                        
+              </ul>  
+            </div>
+            <div class="wrapper wrapper1"  id="wrapper3">
+                <p class="click-text">
+                  What's included in the price shown? <span class="arrow"></span>
+                </p>
+                <ul class="ul">
+                  <li class="li">The prices you see on Cheapflights should include all mandatory fees. However, you'll need to check non-mandatory fees such as seat selection, baggage and meals before you book your flight with your chosen airline or travel agent. These fees normally show up as you go through the process of booking and paying for your flight. Please note, all fares are subject to availability.</li>
+                        
+                </ul>  
+            </div>
+            <div class="wrapper wrapper1"  id="wrapper4">
+                <p class="click-text">
+                  What's included in the price shown? <span class="arrow"></span>
+                </p>
+                <ul class="ul">
+                  <li class="li">The prices you see on Cheapflights should include all mandatory fees. However, you'll need to check non-mandatory fees such as seat selection, baggage and meals before you book your flight with your chosen airline or travel agent. These fees normally show up as you go through the process of booking and paying for your flight. Please note, all fares are subject to availability.</li>
+                        
+                </ul>  
+            </div>
+          </div> <!-- / tabs_item -->
+
+          <div class="tabs_item">
+            <div class="wrapper wrapper1"  id="wrapper5">
+                <p class="click-text">
+                  What's included in the price shown? <span class="arrow"></span>
+                </p>
+                <ul class="ul">
+                  <li class="li">The prices you see on Cheapflights should include all mandatory fees. However, you'll need to check non-mandatory fees such as seat selection, baggage and meals before you book your flight with your chosen airline or travel agent. These fees normally show up as you go through the process of booking and paying for your flight. Please note, all fares are subject to availability.</li>         
+                </ul>  
+            </div>
+            <div class="wrapper wrapper1"  id="wrapper6">
+                <p class="click-text">
+                  What's included in the price shown? <span class="arrow"></span>
+                </p>
+                <ul class="ul">
+                  <li class="li">The prices you see on Cheapflights should include all mandatory fees. However, you'll need to check non-mandatory fees such as seat selection, baggage and meals before you book your flight with your chosen airline or travel agent. These fees normally show up as you go through the process of booking and paying for your flight. Please note, all fares are subject to availability.</li>         
+                </ul>  
+            </div>
+            <div class="wrapper wrapper1"  id="wrapper7">
+                <p class="click-text">
+                  What's included in the price shown? <span class="arrow"></span>
+                </p>
+                <ul class="ul">
+                  <li class="li">The prices you see on Cheapflights should include all mandatory fees. However, you'll need to check non-mandatory fees such as seat selection, baggage and meals before you book your flight with your chosen airline or travel agent. These fees normally show up as you go through the process of booking and paying for your flight. Please note, all fares are subject to availability.</li>         
+                </ul>  
+            </div>
+            <div class="wrapper wrapper1"  id="wrapper8">
+                <p class="click-text">
+                  What's included in the price shown? <span class="arrow"></span>
+                </p>
+                <ul class="ul">
+                  <li class="li">The prices you see on Cheapflights should include all mandatory fees. However, you'll need to check non-mandatory fees such as seat selection, baggage and meals before you book your flight with your chosen airline or travel agent. These fees normally show up as you go through the process of booking and paying for your flight. Please note, all fares are subject to availability.</li>         
+                </ul>  
+            </div>
+            <div class="wrapper wrapper1"  id="wrapper9">
+                <p class="click-text">
+                  What's included in the price shown? <span class="arrow"></span>
+                </p>
+                <ul class="ul">
+                  <li class="li">The prices you see on Cheapflights should include all mandatory fees. However, you'll need to check non-mandatory fees such as seat selection, baggage and meals before you book your flight with your chosen airline or travel agent. These fees normally show up as you go through the process of booking and paying for your flight. Please note, all fares are subject to availability.</li>         
+                </ul>  
+            </div>
+          </div> <!-- / tabs_item -->
+
+          <div class="tabs_item">
+            <div class="wrapper wrapper1"  id="wrapper10">
+                <p class="click-text">
+                  What's included in the price shown? <span class="arrow"></span>
+                </p>
+                <ul class="ul">
+                  <li class="li">The prices you see on Cheapflights should include all mandatory fees. However, you'll need to check non-mandatory fees such as seat selection, baggage and meals before you book your flight with your chosen airline or travel agent. These fees normally show up as you go through the process of booking and paying for your flight. Please note, all fares are subject to availability.</li>         
+                </ul>  
+            </div>
+            <div class="wrapper wrapper1"  id="wrapper11">
+                <p class="click-text">
+                  What's included in the price shown? <span class="arrow"></span>
+                </p>
+                <ul class="ul">
+                  <li class="li">The prices you see on Cheapflights should include all mandatory fees. However, you'll need to check non-mandatory fees such as seat selection, baggage and meals before you book your flight with your chosen airline or travel agent. These fees normally show up as you go through the process of booking and paying for your flight. Please note, all fares are subject to availability.</li>         
+                </ul>  
+            </div>
+            <div class="wrapper wrapper1"  id="wrapper12">
+                <p class="click-text">
+                  What's included in the price shown? <span class="arrow"></span>
+                </p>
+                <ul class="ul">
+                  <li class="li">The prices you see on Cheapflights should include all mandatory fees. However, you'll need to check non-mandatory fees such as seat selection, baggage and meals before you book your flight with your chosen airline or travel agent. These fees normally show up as you go through the process of booking and paying for your flight. Please note, all fares are subject to availability.</li>         
+                </ul>  
+            </div>
+            <div class="wrapper wrapper1"  id="wrapper13">
+                <p class="click-text">
+                  What's included in the price shown? <span class="arrow"></span>
+                </p>
+                <ul class="ul">
+                  <li class="li">The prices you see on Cheapflights should include all mandatory fees. However, you'll need to check non-mandatory fees such as seat selection, baggage and meals before you book your flight with your chosen airline or travel agent. These fees normally show up as you go through the process of booking and paying for your flight. Please note, all fares are subject to availability.</li>         
+                </ul>  
+            </div>
+            <div class="wrapper wrapper1"  id="wrapper14">
+                <p class="click-text">
+                  What's included in the price shown? <span class="arrow"></span>
+                </p>
+                <ul class="ul">
+                  <li class="li">The prices you see on Cheapflights should include all mandatory fees. However, you'll need to check non-mandatory fees such as seat selection, baggage and meals before you book your flight with your chosen airline or travel agent. These fees normally show up as you go through the process of booking and paying for your flight. Please note, all fares are subject to availability.</li>         
+                </ul>  
+            </div>
+          </div> <!-- / tabs_item -->
+          
+        </div> <!-- / tab_content -->
+       </div> <!-- / tab -->
+     </div>
+
+    <script type="text/javascript">
+      document.getElementById('wrapper').onclick = function() {
+
+          var className = ' ' + wrapper.className + ' ';
+
+          this.className = ~className.indexOf(' active ') ?
+                               className.replace(' active ', ' ') :
+                               this.className + ' active';
+      };
+      document.getElementById('wrapper1').onclick = function() {
+
+          var className = ' ' + wrapper1.className + ' ';
+
+          this.className = ~className.indexOf(' active ') ?
+                               className.replace(' active ', ' ') :
+                               this.className + ' active';
+      };
+      document.getElementById('wrapper2').onclick = function() {
+
+          var className = ' ' + wrapper2.className + ' ';
+
+          this.className = ~className.indexOf(' active ') ?
+                               className.replace(' active ', ' ') :
+                               this.className + ' active';
+      };
+      document.getElementById('wrapper3').onclick = function() {
+
+          var className = ' ' + wrapper3.className + ' ';
+
+          this.className = ~className.indexOf(' active ') ?
+                               className.replace(' active ', ' ') :
+                               this.className + ' active';
+      };
+      document.getElementById('wrapper4').onclick = function() {
+
+          var className = ' ' + wrapper4.className + ' ';
+
+          this.className = ~className.indexOf(' active ') ?
+                               className.replace(' active ', ' ') :
+                               this.className + ' active';
+      };
+      document.getElementById('wrapper5').onclick = function() {
+
+          var className = ' ' + wrapper5.className + ' ';
+
+          this.className = ~className.indexOf(' active ') ?
+                               className.replace(' active ', ' ') :
+                               this.className + ' active';
+      };
+      document.getElementById('wrapper6').onclick = function() {
+
+          var className = ' ' + wrapper6.className + ' ';
+
+          this.className = ~className.indexOf(' active ') ?
+                               className.replace(' active ', ' ') :
+                               this.className + ' active';
+      };
+      document.getElementById('wrapper7').onclick = function() {
+
+          var className = ' ' + wrapper7.className + ' ';
+
+          this.className = ~className.indexOf(' active ') ?
+                               className.replace(' active ', ' ') :
+                               this.className + ' active';
+      };
+      document.getElementById('wrapper8').onclick = function() {
+
+          var className = ' ' + wrapper8.className + ' ';
+
+          this.className = ~className.indexOf(' active ') ?
+                               className.replace(' active ', ' ') :
+                               this.className + ' active';
+      };
+      document.getElementById('wrapper9').onclick = function() {
+
+          var className = ' ' + wrapper9.className + ' ';
+
+          this.className = ~className.indexOf(' active ') ?
+                               className.replace(' active ', ' ') :
+                               this.className + ' active';
+      };
+      document.getElementById('wrapper10').onclick = function() {
+
+          var className = ' ' + wrapper10.className + ' ';
+
+          this.className = ~className.indexOf(' active ') ?
+                               className.replace(' active ', ' ') :
+                               this.className + ' active';
+      };
+      document.getElementById('wrapper11').onclick = function() {
+
+          var className = ' ' + wrapper11.className + ' ';
+
+          this.className = ~className.indexOf(' active ') ?
+                               className.replace(' active ', ' ') :
+                               this.className + ' active';
+      };
+      document.getElementById('wrapper12').onclick = function() {
+
+          var className = ' ' + wrapper12.className + ' ';
+
+          this.className = ~className.indexOf(' active ') ?
+                               className.replace(' active ', ' ') :
+                               this.className + ' active';
+      };
+      document.getElementById('wrapper13').onclick = function() {
+
+          var className = ' ' + wrapper13.className + ' ';
+
+          this.className = ~className.indexOf(' active ') ?
+                               className.replace(' active ', ' ') :
+                               this.className + ' active';
+      };
+      document.getElementById('wrapper14').onclick = function() {
+
+          var className = ' ' + wrapper14.className + ' ';
+
+          this.className = ~className.indexOf(' active ') ?
+                               className.replace(' active ', ' ') :
+                               this.className + ' active';
+      };
+
+      $(document).ready(function() { 
+
+        (function ($) { 
+          $('.tab ul.tabs').addClass('active').find('> li:eq(0)').addClass('current');
+          
+          $('.tab ul.tabs li a').click(function (g) { 
+            var tab = $(this).closest('.tab'), 
+              index = $(this).closest('li').index();
+            
+            tab.find('ul.tabs > li').removeClass('current');
+            $(this).closest('li').addClass('current');
+            
+            tab.find('.tab_content').find('div.tabs_item').not('div.tabs_item:eq(' + index + ')').slideUp();
+            tab.find('.tab_content').find('div.tabs_item:eq(' + index + ')').slideDown();
+            
+            g.preventDefault();
+          } );
+        })(jQuery);
+
+      });
+    </script>
+  </div>
+  <!-- END CONTAINER -->
+
+  <!-- FOOTER -->
+  <div style="width: 1366px;margin: 0 -42px;height: 436px;background-color: #272727;padding:90px 75px;border-bottom: 0.1px solid #D9D9D9;">
+    <div class="col-md-3">
+      <img src="images/logo1.png" style="zoom:50%">
+      <p style="padding-top: 10px;padding-left: 50px">
+        <li class="text-footer" >IGO Ltd.</li>
+        <li class="text-footers">NO 29 HANG BAI STREET,</li>
+        <li class="text-footers" >HOAN KIEM, HANOI</li>
+        <a href="#"><li class="text-footers linh">Email: cs@igo.com</li></a>
+        <li class="text-footers" >Hotline:<h style="color: #FED101"> 1900-2098</h></li>
+      </p>
+    </div>
+    <div class="col-md-3">
+      <p style="padding-top: 10px;">
+        <li class="text-footer" >Keep in touch</li>
+        <a href="about.html"><li class="text-footers linh" style="padding-top: 10px;">About us</li></a>
+        <a href="#"><li class="text-footers linh" style="padding-top: 10px;">Join us</li></a>
+        <a href="#"><li class="text-footers linh" style="padding-top: 10px;">Partner with us</li></a>
+        <a href="contact.html"><li class="text-footers linh" style="padding-top: 10px;">Contact us</li></a>
+      </p>
+    </div>
+    <div class="col-md-3">
+      <p style="padding-top: 10px;">
+        <li class="text-footer" >Need a helping hand?</li>
+        <a href="review.html"><li class="text-footers linh" style="padding-top: 10px;">Reviews</li></a>
+        <a href="faq.html"><li class="text-footers linh" style="padding-top: 10px;">FAQs</li></a>
+        <a href="#"><li class="text-footers linh" style="padding-top: 10px;">Privacy Policy</li></a>
+        <a href="#"><li class="text-footers linh" style="padding-top: 10px;">Terms & Conditions</li></a>
+      </p>
+    </div>
+    <div class="col-md-3">
+      <p style="padding-top: 10px;">
+        <li class="text-footer" >Stalk us on</li>
+        <a href="#"><li class="text-footers linh" style="padding-top: 10px;"><i class="fa fa-facebook" aria-hidden="true" style="padding-right: 15px"></i>Facebook</li></a>
+        <a href="#"><li class="text-footers linh" style="padding-top: 10px;"><i class="fa fa-instagram" aria-hidden="true" style="padding-right: 10px;"></i>Instagram</li></a>
+        <a href="#"><li class="text-footers linh" style="padding-top: 10px;"><i class="fa fa-youtube-play" aria-hidden="true"  style="padding-right: 10px;"></i>Youtube</li></a>
+        <a href="#"><li class="text-footers linh" style="padding-top: 10px;"><i class="fa fa-twitter" aria-hidden="true" style="padding-right: 10px;"></i>Twitter</li></a>
+      </p>
+    </div>
+    <div style="width: 1020px;height: 90px; background-color: #FED101; border: 1px solid #FED101;float: right;margin-top: 50px;padding-left: 40px; border-top-left-radius:10px;border-bottom-left-radius:10px;border-bottom-right-radius:10px;margin-right: 16px;">
+      <div class="col-md-6" style="margin-top: 20px;">
+        <p style="font-size: 24px;font-family: R Bold">Wanna get it daily?</p>
+        <p class="text-footers" style="color: #272727;margin-top: 10px;font-size: 18px;font-family: R Regular">Subcribe to receive tips & inspiring travel stories!</p>
+      </div>
+      <div class="col-md-6" style="margin-top: 20px;">
+        <input type="text" name="Email" placeholder="Email" style="font-style: inherit;font-family: R Regular; width:350px;height: 50px;margin-left: -70px;padding: 20px; font-size: 18px;">
+        <a href="#"><button class="sub sub-2 sub-2c" style="background-color: #272727; color: white; height: 50px;border-style: none; border-radius: 10px;width: 140px;font-size: 24px; font-family: R Bold;margin-left: 20px;">Subcribe</button></a>
+      </div>
+    </div>
+  </div>
+  <div style="height: 65px;background-color: #272727;width: 1366px;margin: 0 -42px">
+    <p style="text-align: center;color: white;padding-top: 15px;" class="text-footers">All material herein © 2017 IGO. All Rights Reserved.</p>
+  </div>
+<link property="" rel="stylesheet" href="js/scripts/font-awesome/css/font-awesome.min.css">
+<script async src="js/scripts/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>
